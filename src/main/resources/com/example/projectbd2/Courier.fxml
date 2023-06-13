@@ -5,17 +5,17 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="910.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="910.0" type="AnchorPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectbd2.Courier.Courier_Controller">
    <children>
       <TableView fx:id="TableViewCourier" prefHeight="400.0" prefWidth="910.0">
         <columns>
-          <TableColumn prefWidth="295.20001220703125" text="Courier ID" />
-          <TableColumn prefWidth="316.79998779296875" text="Nama Courier" />
-            <TableColumn prefWidth="297.5999755859375" text="Nomor Telepon" />
+          <TableColumn fx:id="ColumnId" prefWidth="295.20001220703125" text="Courier ID" />
+          <TableColumn fx:id="ColumnNama" prefWidth="316.79998779296875" text="Nama Courier" />
+            <TableColumn fx:id="ColumnNomor" prefWidth="297.5999755859375" text="Nomor Telepon" />
         </columns>
       </TableView>
       <Button layoutX="659.0" layoutY="461.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Button" />
       <Button layoutX="388.0" layoutY="461.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Update" />
       <Button layoutX="120.0" layoutY="461.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Add" />
    </children>
-</AnchorPane>
+</fx:root>
