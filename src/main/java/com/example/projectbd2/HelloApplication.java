@@ -240,8 +240,15 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Courier.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Menu.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+
+        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Courier/courier.fxml"));
+        courier = new Scene(fxmlLoader.load(), 600, 500);
+        courierController = fxmlLoader.getController();
+
+
+
         stage.setTitle("Babi!");
         stage.setScene(scene);
         stage.show();
