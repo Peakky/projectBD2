@@ -14,9 +14,9 @@
             <TableColumn fx:id="ColumnNomorCourier" prefWidth="297.5999755859375" text="Nomor Telepon" />
         </columns>
       </TableView>
-      <Button layoutX="499.0" layoutY="462.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Button" />
-      <Button layoutX="242.0" layoutY="462.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Update" />
-      <Button layoutX="11.0" layoutY="462.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Add" />
-      <Button layoutX="745.0" layoutY="462.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Cancel" />
+      <Button layoutX="499.0" layoutY="462.0" mnemonicParsing="false" onAction="#onDeleteButtonClick" prefHeight="26.0" prefWidth="154.0" text="Button" />
+      <Button layoutX="242.0" layoutY="462.0" mnemonicParsing="false" onAction="#onEditButtonClick" prefHeight="26.0" prefWidth="154.0" text="Update" />
+      <Button layoutX="11.0" layoutY="462.0" mnemonicParsing="false" onAction="#onAddButtonClick" prefHeight="26.0" prefWidth="154.0" text="Add" />
+      <Button layoutX="745.0" layoutY="462.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="26.0" prefWidth="154.0" text="Cancel" />
    </children>
 </fx:root>
