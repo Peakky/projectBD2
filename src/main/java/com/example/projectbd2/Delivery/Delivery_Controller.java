@@ -20,7 +20,7 @@ public class Delivery_Controller implements Initializable {
     @FXML
     private Button ButtonNext, ButtonPrev;
     @FXML
-    private TableColumn<Delivery_Property, String> ColumnId,ColumnTanggal;
+    private TableColumn<Delivery_Property, String> ColumnIdDelivery, ColumnTanggalDelivery;
     @FXML
     private TableView<Delivery_Property> TableViewDelivery;
 
@@ -105,8 +105,8 @@ public class Delivery_Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ColumnId.setCellValueFactory(f -> f.getValue().IdDelivery());
-        ColumnTanggal.setCellValueFactory(f -> f.getValue().TanggalDelivery());
+        ColumnIdDelivery.setCellValueFactory(f -> f.getValue().IdDelivery());
+        ColumnTanggalDelivery.setCellValueFactory(f -> f.getValue().TanggalDelivery());
 
         try {
             updateTable();

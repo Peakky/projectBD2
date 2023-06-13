@@ -20,7 +20,7 @@ public class Courier_Controller implements Initializable {
     @FXML
     private Button ButtonNext, ButtonPrev;
     @FXML
-    private TableColumn<Courier_Property, String> ColumnId, ColumnNama, ColumnNomor;
+    private TableColumn<Courier_Property, String> ColumnIdCourier, ColumnNamaCourier, ColumnNomorCourier;
     @FXML
     private TableView<Courier_Property> TableViewCourier;
 
@@ -106,9 +106,9 @@ public class Courier_Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ColumnId.setCellValueFactory(f -> f.getValue().IdCourier());
-        ColumnNama.setCellValueFactory(f -> f.getValue().NamaCourier());
-        ColumnNomor.setCellValueFactory(f-> f.getValue().no_Courier());
+        ColumnIdCourier.setCellValueFactory(f -> f.getValue().IdCourier());
+        ColumnNamaCourier.setCellValueFactory(f -> f.getValue().NamaCourier());
+        ColumnNomorCourier.setCellValueFactory(f-> f.getValue().no_Courier());
         try {
             updateTable();
         } catch (SQLException e) {
