@@ -5,29 +5,18 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectbd2.Transaction.Transaction_Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="696.0" prefWidth="910.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TableView fx:id="TableViewDelivery" layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="910.0">
+      <TableView fx:id="TableViewTransaction" prefHeight="400.0" prefWidth="910.0">
          <columns>
-            <TableColumn fx:id="ColumnIdDelivery" prefWidth="292.800048828125" text="Delivery ID" />
-            <TableColumn fx:id="ColumnTanggalDelivery" minWidth="0.0" prefWidth="277.5999755859375" text="Delivery Date" />
-            <TableColumn fx:id="ColumnIdCourier" prefWidth="336.0" text="Courier ID" />
+            <TableColumn fx:id="ColumnIdTransaction" prefWidth="292.800048828125" text="Transaction ID" />
+            <TableColumn fx:id="ColumnNominalTransaction" minWidth="0.0" prefWidth="277.5999755859375" text="Price" />
+            <TableColumn prefWidth="336.0" text="Customer ID" />
          </columns>
       </TableView>
-      <AnchorPane layoutY="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="696.0" prefWidth="910.0">
-         <children>
-            <TableView fx:id="TableViewTransaction" prefHeight="400.0" prefWidth="910.0">
-               <columns>
-                  <TableColumn fx:id="ColumnIdTransaction" prefWidth="292.800048828125" text="Transaction ID" />
-                  <TableColumn fx:id="ColumnNominalTransaction" minWidth="0.0" prefWidth="277.5999755859375" text="Price" />
-                  <TableColumn prefWidth="336.0" text="Customer ID" />
-               </columns>
-            </TableView>
-         </children>
-      </AnchorPane>
-      <Button layoutX="512.0" layoutY="462.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Button" />
-      <Button layoutX="255.0" layoutY="462.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Update" />
-      <Button layoutX="24.0" layoutY="462.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Add" />
-      <Button layoutX="758.0" layoutY="462.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Cancel" />
+      <Button layoutX="477.0" layoutY="418.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Delete" />
+      <Button layoutX="260.0" layoutY="418.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Update" />
+      <Button layoutX="43.0" layoutY="418.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Add" />
+      <Button layoutX="705.0" layoutY="418.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Cancel" />
    </children>
 </AnchorPane>
