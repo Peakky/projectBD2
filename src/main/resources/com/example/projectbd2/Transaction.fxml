@@ -5,7 +5,6 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectbd2.Transaction.Transaction_Controller">
    <children>
       <TableView fx:id="TableViewDelivery" layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="910.0">
@@ -15,7 +14,7 @@
             <TableColumn fx:id="ColumnIdCourier" prefWidth="336.0" text="Courier ID" />
          </columns>
       </TableView>
-      <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="696.0" prefWidth="910.0">
+      <AnchorPane layoutY="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="696.0" prefWidth="910.0">
          <children>
             <TableView fx:id="TableViewTransaction" prefHeight="400.0" prefWidth="910.0">
                <columns>
@@ -24,10 +23,11 @@
                   <TableColumn prefWidth="336.0" text="Customer ID" />
                </columns>
             </TableView>
-            <Button layoutX="649.0" layoutY="451.0" mnemonicParsing="false" onAction="#onDeleteButtonClick" prefHeight="26.0" prefWidth="154.0" text="Delete" />
-            <Button layoutX="378.0" layoutY="451.0" mnemonicParsing="false" onAction="#onEditButtonClick" prefHeight="26.0" prefWidth="154.0" text="Update" />
-            <Button layoutX="115.0" layoutY="451.0" mnemonicParsing="false" onAction="#onAddButtonClick" prefHeight="26.0" prefWidth="154.0" text="Add" />
          </children>
       </AnchorPane>
+      <Button layoutX="512.0" layoutY="462.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Button" />
+      <Button layoutX="255.0" layoutY="462.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Update" />
+      <Button layoutX="24.0" layoutY="462.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Add" />
+      <Button layoutX="758.0" layoutY="462.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Cancel" />
    </children>
 </AnchorPane>
