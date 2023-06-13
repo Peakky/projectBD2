@@ -20,7 +20,7 @@ public class Transaction_Controller implements Initializable {
     @FXML
     private Button ButtonNext, ButtonPrev;
     @FXML
-    private TableColumn<Transaction_Property, String> ColumnId,ColumnNominal;
+    private TableColumn<Transaction_Property, String> ColumnIdTransaction, ColumnNominalTransaction;
     @FXML
     private TableView<Transaction_Property> TableViewTransaction;
 
@@ -104,8 +104,8 @@ public class Transaction_Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ColumnId.setCellValueFactory(f -> f.getValue().idTransaction());
-        ColumnNominal.setCellValueFactory(f -> f.getValue().NominalTransaction());
+        ColumnIdTransaction.setCellValueFactory(f -> f.getValue().idTransaction());
+        ColumnNominalTransaction.setCellValueFactory(f -> f.getValue().NominalTransaction());
 
         try {
             updateTable();
