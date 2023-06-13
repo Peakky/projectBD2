@@ -35,14 +35,15 @@ public class SupplierRepository {
             suppliers.add(
                     new Supplier(
                             rs.getInt("id"),
-                            rs.getString("Nama")
+                            rs.getString("Nama"),
+                            rs.getInt("No Telepon")
                     )
             );
         }
         return suppliers;
     }
 
-    public void insertData(String Nama) throws SQLException {
+    public void insertData(String Nama, int NomorTelp) throws SQLException {
         String Query = "INSERT INTO Supplier (Nama) VALUES (?)";
         PreparedStatement preparedStatement = conn.prepareStatement(Query);
 

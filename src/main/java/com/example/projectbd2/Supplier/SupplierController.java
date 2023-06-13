@@ -20,7 +20,7 @@ public class SupplierController implements Initializable {
     @FXML
     private Button ButtonNext, ButtonPrev;
     @FXML
-    private TableColumn<SupplierProperty, String> IDSup, namaSup;
+    private TableColumn<SupplierProperty, String> IDSup, namaSup, NoTelp;
     @FXML
     private TableView<SupplierProperty> TableSupplier;
 
@@ -95,6 +95,7 @@ public class SupplierController implements Initializable {
             SupplierProperty tp = new SupplierProperty();
             tp.setIdSup(Integer.toString(t.id));
             tp.setNamaSup(t.namaSup);
+
             supplier.add(tp);
         });
         TableSupplier.setItems(supplier);

@@ -9,15 +9,19 @@ import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 
 public class SupplierInsert {
-    TextField IDsup, NamaSup;
+    @FXML
+    TextField  NamaSup, NoTelepon;
     boolean isValid;
     Label warningText;
     SupplierRepository supplierRepository;
     @FXML
     public void onAddButtonClick() throws SQLException {
         supplierRepository = new SupplierRepository();
+        if (!isNumeric(NoTelepon.getText())){
+            warningText.setText("No Telepon Harus Angka!");
+        }
         try {
-            supplierRepository.insertData(NamaSup.getText());
+            supplierRepository.insertData(NamaSup.getText(), Integer.parseInt(NoTelepon.getText()));
         } catch (SQLIntegrityConstraintViolationException e){
             warningText.setText("Gagal Input");
         }
