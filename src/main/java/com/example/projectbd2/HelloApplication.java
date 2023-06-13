@@ -16,6 +16,7 @@ import com.example.projectbd2.Order.Order_Controller;
 import com.example.projectbd2.Order.Order_Delete;
 import com.example.projectbd2.Order.Order_Insert;
 import com.example.projectbd2.Order.Order_Update;
+import com.example.projectbd2.Supplier.SupplierController;
 import com.example.projectbd2.Transaction.Transaction_Controller;
 import com.example.projectbd2.Transaction.Transaction_Delete;
 import com.example.projectbd2.Transaction.Transaction_Insert;
@@ -35,6 +36,7 @@ public class HelloApplication extends Application {
     private Scene delivery,deliveryInsert,deliveryUpdate,deliveryDelete;
     private Scene order,orderInsert,orderUpdate,orderDelete;
     private Scene transaction,transactionInsert,transactionUpdate,transactionDelete;
+    private Scene Supplier, SupplierInsert, SupplierUpdate, SupplierDelete;
     private Courier_Controller courierController;
     private Courier_Insert courierInsertController;
     private Courier_Update courierUpdateController;
@@ -55,6 +57,7 @@ public class HelloApplication extends Application {
     private Order_Insert orderInsertController;
     private Order_Update orderUpdateController;
     private Order_Delete orderDeleteController;
+    private SupplierController supplierController;
 
     public void setPrimaryStage(Scene scene){
         this.primaryStage.setScene(scene);
@@ -227,6 +230,15 @@ public class HelloApplication extends Application {
     public Order_Delete getOrderDeleteController() {
         return orderDeleteController;
     }
+
+    public SupplierController getSupplierController() {
+        return supplierController;
+    }
+
+    public void setSupplierController(SupplierController supplierController) {
+        this.supplierController = supplierController;
+    }
+
     private static HelloApplication applicationInstance;
     public static HelloApplication getApplicationInstance() {
         return applicationInstance;
@@ -236,6 +248,38 @@ public class HelloApplication extends Application {
     }
     public static HelloApplication getapplicationInstance() {
         return applicationInstance;
+    }
+
+    public Scene getSupplier() {
+        return Supplier;
+    }
+
+    public void setSupplier(Scene supplier) {
+        Supplier = supplier;
+    }
+
+    public Scene getSupplierInsert() {
+        return SupplierInsert;
+    }
+
+    public void setSupplierInsert(Scene supplierInsert) {
+        SupplierInsert = supplierInsert;
+    }
+
+    public Scene getSupplierUpdate() {
+        return SupplierUpdate;
+    }
+
+    public void setSupplierUpdate(Scene supplierUpdate) {
+        SupplierUpdate = supplierUpdate;
+    }
+
+    public Scene getSupplierDelete() {
+        return SupplierDelete;
+    }
+
+    public void setSupplierDelete(Scene supplierDelete) {
+        SupplierDelete = supplierDelete;
     }
 
     @Override

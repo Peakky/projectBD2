@@ -2,9 +2,6 @@ package com.example.projectbd2.Supplier;
 
 import com.example.projectbd2.HelloApplication;
 import com.example.projectbd2.Pagination;
-import com.example.projectbd2.Transaction.Transaction;
-import com.example.projectbd2.Transaction.Transaction_Property;
-import com.example.projectbd2.Transaction.Transaction_Repository;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
