@@ -94,7 +94,7 @@ public class Courier_Controller implements Initializable {
         }
         result.forEach((p) -> {
             Courier_Property cp = new Courier_Property();
-            cp.setId(Integer.toString(p.id));
+            cp.setId(Integer.toString(p.courierID));
             cp.setNama(p.nama);
             cp.setNo_telp(p.no_telp);
 

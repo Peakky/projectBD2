@@ -94,7 +94,7 @@ public class Delivery_Controller implements Initializable {
         }
         result.forEach((f) -> {
             Delivery_Property ft = new Delivery_Property();
-            ft.setId(Integer.toString(f.id));
+            ft.setId(Integer.toString(f.deliveryID));
             ft.setTanggal_Delivery(f.Tanggal_Delivery);
 
             deliveries.add(ft);

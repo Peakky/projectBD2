@@ -94,7 +94,7 @@ public class Order_Controller implements Initializable {
         }
         result.forEach((f) -> {
             Order_Property ot = new Order_Property();
-            ot.setId(Integer.toString(f.id));
+            ot.setId(Integer.toString(f.orderID));
             ot.setTanggal_Order(f.Tanggal_Delivery);
 
             orders.add(ot);

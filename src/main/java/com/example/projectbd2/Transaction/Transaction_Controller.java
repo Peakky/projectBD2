@@ -94,7 +94,7 @@ public class Transaction_Controller implements Initializable {
         }
         result.forEach((t) -> {
             Transaction_Property tp = new Transaction_Property();
-            tp.setId(Integer.toString(t.id));
+            tp.setId(Integer.toString(t.transactionID));
             tp.setNominal(Integer.toString(t.nominal));
             transactions.add(tp);
         });

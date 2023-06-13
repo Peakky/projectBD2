@@ -94,7 +94,7 @@ public class Customer_Controller implements Initializable {
         }
         result.forEach((p) -> {
             Customer_Property pt = new Customer_Property();
-            pt.setId(Integer.toString(p.id));
+            pt.setId(Integer.toString(p.customerID));
             pt.setNama(p.nama);
             pt.setEmail(p.email);
             pt.setNumber(p.no_hp);
