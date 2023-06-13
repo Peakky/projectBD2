@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectbd2.Order.Order_Controller">
+   <children>
+      <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="910.0">
+         <children>
+            <TableView fx:id="TableViewOrder" prefHeight="400.0" prefWidth="910.0">
+               <columns>
+                  <TableColumn fx:id="ColumnIdOrder" prefWidth="295.20001220703125" text="Order ID" />
+                  <TableColumn fx:id="ColumnTanggalOrder" prefWidth="316.79998779296875" text="Tanggal Order" />
+                  <TableColumn fx:id="ColumnIdTransaction" prefWidth="297.5999755859375" text="Transaction ID" />
+               </columns>
+            </TableView>
+            <Button layoutX="659.0" layoutY="461.0" mnemonicParsing="false" onAction="#onDeleteButtonClick" prefHeight="26.0" prefWidth="154.0" text="Delete" />
+            <Button layoutX="388.0" layoutY="461.0" mnemonicParsing="false" onAction="#onEditButtonClick" prefHeight="26.0" prefWidth="154.0" text="Update" />
+            <Button layoutX="120.0" layoutY="461.0" mnemonicParsing="false" onAction="#onAddButtonClick" prefHeight="26.0" prefWidth="154.0" text="Add" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

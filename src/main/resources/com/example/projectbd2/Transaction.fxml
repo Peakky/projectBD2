@@ -5,18 +5,29 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="696.0" prefWidth="910.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectbd2.Transaction.Transaction_Controller">
    <children>
-      <TableView prefHeight="400.0" prefWidth="910.0">
-        <columns>
-          <TableColumn prefWidth="292.800048828125" text="Transaction ID" />
-          <TableColumn minWidth="0.0" prefWidth="277.5999755859375" text="Price" />
-            <TableColumn prefWidth="336.0" text="Customer ID" />
-        </columns>
+      <TableView fx:id="TableViewDelivery" layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="910.0">
+         <columns>
+            <TableColumn fx:id="ColumnIdDelivery" prefWidth="292.800048828125" text="Delivery ID" />
+            <TableColumn fx:id="ColumnTanggalDelivery" minWidth="0.0" prefWidth="277.5999755859375" text="Delivery Date" />
+            <TableColumn fx:id="ColumnIdCourier" prefWidth="336.0" text="Courier ID" />
+         </columns>
       </TableView>
-      <Button layoutX="499.0" layoutY="462.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Button" />
-      <Button layoutX="242.0" layoutY="462.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Update" />
-      <Button layoutX="11.0" layoutY="462.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Add" />
-      <Button layoutX="745.0" layoutY="462.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Cancel" />
+      <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="696.0" prefWidth="910.0">
+         <children>
+            <TableView fx:id="TableViewTransaction" prefHeight="400.0" prefWidth="910.0">
+               <columns>
+                  <TableColumn fx:id="ColumnIdTransaction" prefWidth="292.800048828125" text="Transaction ID" />
+                  <TableColumn fx:id="ColumnNominalTransaction" minWidth="0.0" prefWidth="277.5999755859375" text="Price" />
+                  <TableColumn prefWidth="336.0" text="Customer ID" />
+               </columns>
+            </TableView>
+            <Button layoutX="649.0" layoutY="451.0" mnemonicParsing="false" onAction="#onDeleteButtonClick" prefHeight="26.0" prefWidth="154.0" text="Delete" />
+            <Button layoutX="378.0" layoutY="451.0" mnemonicParsing="false" onAction="#onEditButtonClick" prefHeight="26.0" prefWidth="154.0" text="Update" />
+            <Button layoutX="115.0" layoutY="451.0" mnemonicParsing="false" onAction="#onAddButtonClick" prefHeight="26.0" prefWidth="154.0" text="Add" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

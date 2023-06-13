@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
+<<<<<<< HEAD
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="910.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TableView prefHeight="400.0" prefWidth="910.0">
@@ -20,5 +21,25 @@
       <Button layoutX="245.0" layoutY="452.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Update" />
       <Button layoutX="14.0" layoutY="452.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Add" />
       <Button layoutX="748.0" layoutY="452.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Cancel" />
+=======
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectbd2.Customer.Customer_Controller" >
+   <children>
+      <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="910.0">
+         <children>
+            <TableView fx:id="TableViewCustomer" prefHeight="400.0" prefWidth="910.0">
+               <columns>
+                  <TableColumn fx:id="ColumnIdCustomer" prefWidth="163.0" text="Customer ID" />
+                  <TableColumn fx:id="ColumnNamaCustomer" prefWidth="223.0" text="Nama Customer" />
+                  <TableColumn fx:id="ColumnEmailCustomer" prefWidth="333.0" text="Email" />
+                  <TableColumn fx:id="ColumnNumberCustomer" prefWidth="187.0" text="No Telepon" />
+                  <TableColumn fx:id="ColumnNomorCourier11" prefWidth="235.0" text="No Telepon" />
+               </columns>
+            </TableView>
+            <Button layoutX="659.0" layoutY="461.0" mnemonicParsing="false" onAction="#onDeleteButtonClick" prefHeight="26.0" prefWidth="154.0" text="Delete" />
+            <Button layoutX="388.0" layoutY="461.0" mnemonicParsing="false" onAction="#onEditButtonClick" prefHeight="26.0" prefWidth="154.0" text="Update" />
+            <Button layoutX="120.0" layoutY="461.0" mnemonicParsing="false" onAction="#onAddButtonClick" prefHeight="26.0" prefWidth="154.0" text="Add" />
+         </children>
+      </AnchorPane>
+>>>>>>> origin/master
    </children>
 </AnchorPane>
