@@ -1,21 +1,22 @@
-package com.example.projectbd2.Delivery;
+package com.example.projectbd2.Order;
 
+import com.example.projectbd2.Delivery.Delivery;
 import com.example.projectbd2.Pagination;
 import com.example.projectbd2.connection;
 
 import java.sql.*;
 import java.util.ArrayList;
 
-public class Delivery_Repository {
+public class Order_Repository {
     private Connection conn;
 
-    public Delivery_Repository() throws SQLException {
+    public Order_Repository() throws SQLException {
         conn = connection.GetConnection();
     }
 
-    public int GetDeliveryCount() throws SQLException {
+    public int GetOrderCount() throws SQLException {
         Statement stmt = conn.createStatement();
-        String sql = "SELECT COUNT(id) FROM delivery";
+        String sql = "SELECT COUNT(id) FROM order";
         System.out.println(sql);
         ResultSet rs = stmt.executeQuery(sql);
         if(rs.next()){
@@ -25,25 +26,25 @@ public class Delivery_Repository {
         }
     }
 
-    public ArrayList<Delivery> GetDelivery(Pagination pgn) throws SQLException {
-        ArrayList<Delivery> deliveries = new ArrayList<Delivery>();
+    public ArrayList<Order> GetOrder(Pagination pgn) throws SQLException {
+        ArrayList<Order> orders = new ArrayList<Order>();
         Statement stmt = conn.createStatement();
-        String sql = String.format("SELECT * FROM delivery LIMIT %o OFFSET %o", pgn.limit, pgn.offset);
+        String sql = String.format("SELECT * FROM order LIMIT %o OFFSET %o", pgn.limit, pgn.offset);
         System.out.println(sql);
         ResultSet rs = stmt.executeQuery(sql);
         while (rs.next()){
-            deliveries.add(
-                    new Delivery(
+            orders.add(
+                    new Order(
                             rs.getInt("id"),
                             rs.getString("Tanggal")
                     )
             );
         }
-        return deliveries;
+        return orders;
     }
 
     public void insertData(String Tanggal) {
-        String Query = "INSERT INTO delivery (Tanggal) VALUES (?)";
+        String Query = "INSERT INTO order (Tanggal) VALUES (?)";
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(Query);
             preparedStatement.setString(1, Tanggal);
@@ -57,7 +58,7 @@ public class Delivery_Repository {
     }
 
     public void updateData(int id, String Tanggal) {
-        String Query = "UPDATE delivery SET ";
+        String Query = "UPDATE order SET ";
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(Query + "Tanggal = '" + Tanggal + "' where id = " + id);
             System.out.println(preparedStatement);
@@ -72,7 +73,7 @@ public class Delivery_Repository {
     }
 
     public void deleteData(int id){
-        String Query = "DELETE FROM delivery WHERE id = " + id;
+        String Query = "DELETE FROM order WHERE id = " + id;
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(Query);
             System.out.println(preparedStatement);
@@ -84,7 +85,7 @@ public class Delivery_Repository {
     }
 
     public boolean cekId(int id){
-        String Query = "select * FROM delivery WHERE id = " + id;
+        String Query = "select * FROM order WHERE id = " + id;
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(Query);
             System.out.println(preparedStatement);

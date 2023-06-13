@@ -1,5 +1,6 @@
-package com.example.projectbd2.Delivery;
+package com.example.projectbd2.Order;
 
+import com.example.projectbd2.Delivery.Delivery_Repository;
 import com.example.projectbd2.HelloApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -7,27 +8,27 @@ import javafx.scene.control.TextField;
 
 import java.sql.SQLException;
 
-public class Delivery_Update {
+public class Order_Update {
     @FXML
-    TextField id, Tanggal;
+    TextField Id_Order, Tanggal_Order;
     @FXML
     Label warningText;
-    Delivery_Repository deliveryRepository;
+    Order_Repository orderRepository;
 
     @FXML
     public void onEditButtonClick() throws SQLException {
-        deliveryRepository = new Delivery_Repository();
-        if (!isNumeric(id.getText())){
+        orderRepository = new Order_Repository();
+        if (!isNumeric(Id_Order.getText())){
             warningText.setText("Id harus angka");
         }
-        else if (!deliveryRepository.cekId(Integer.parseInt(id.getText()))){
+        else if (!orderRepository.cekId(Integer.parseInt(Id_Order.getText()))){
             warningText.setText("Id invalid");
         }
         else {
-            deliveryRepository.updateData(Integer.parseInt(id.getText()), Tanggal.getText());
+            orderRepository.updateData(Integer.parseInt(Id_Order.getText()), Tanggal_Order.getText());
             HelloApplication app = HelloApplication.getapplicationInstance();
-            app.getDeliveryController().updateTable();
-            app.setPrimaryStage(app.getDelivery());
+            app.getOrderController().updateTable();
+            app.setPrimaryStage(app.getOrder());
         }
     }
 

@@ -1,4 +1,4 @@
-package com.example.projectbd2.Delivery;
+package com.example.projectbd2.Courier;
 
 import com.example.projectbd2.HelloApplication;
 import com.example.projectbd2.Pagination;
@@ -16,23 +16,23 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class Delivery_Controller implements Initializable {
+public class Courier_Controller implements Initializable {
     @FXML
     private Button ButtonNext, ButtonPrev;
     @FXML
-    private TableColumn<Delivery_Property, String> ColumnId,ColumnTanggal;
+    private TableColumn<Courier_Property, String> ColumnId, ColumnNama, ColumnNomor;
     @FXML
-    private TableView<Delivery_Property> TableViewDelivery;
+    private TableView<Courier_Property> TableViewCourier;
 
     private int page = 1;
 
     private int rowsPerPage = 12;
 
-    private ObservableList<Delivery_Property> deliveries = FXCollections.observableArrayList();
+    private ObservableList<Courier_Property> Couriers = FXCollections.observableArrayList();
 
-    private Delivery_Repository deliveryRepository = new Delivery_Repository();
+    private Courier_Repository courierRepository = new Courier_Repository();
 
-    public Delivery_Controller() throws SQLException {
+    public Courier_Controller() throws SQLException {
     }
 
     @FXML
@@ -56,19 +56,19 @@ public class Delivery_Controller implements Initializable {
     @FXML
     void onAddButtonClick(){
         HelloApplication app = HelloApplication.getapplicationInstance();
-        app.setPrimaryStage(app.getDeliveryInsert());
+        app.setPrimaryStage(app.getCourierInsert());
     }
 
     @FXML
     void onEditButtonClick(){
         HelloApplication app = HelloApplication.getApplicationInstance();
-        app.setPrimaryStage(app.getDeliveryUpdate());
+        app.setPrimaryStage(app.getCourierUpdate());
     }
 
     @FXML
     void onDeleteButtonClick(){
         HelloApplication app = HelloApplication.getApplicationInstance();
-        app.setPrimaryStage(app.getDeliveryDelete());
+        app.setPrimaryStage(app.getCourierDelete());
     }
 
     private void updateButton() throws SQLException {
@@ -77,7 +77,7 @@ public class Delivery_Controller implements Initializable {
         } else {
             ButtonPrev.setDisable(false);
         }
-        if (page >= Math.ceil((deliveryRepository.GetDeliveryCount() / Double.valueOf(rowsPerPage)))){
+        if (page >= Math.ceil((courierRepository.GetCourierCount() / Double.valueOf(rowsPerPage)))){
             ButtonNext.setDisable(true);
         } else {
             ButtonNext.setDisable(false);
@@ -85,29 +85,30 @@ public class Delivery_Controller implements Initializable {
     }
 
     public void updateTable() throws SQLException {
-        deliveries = FXCollections.observableArrayList();
-        ArrayList<Delivery> result;
+        Couriers = FXCollections.observableArrayList();
+        ArrayList<Courier> result;
         try {
-            result = deliveryRepository.GetDelivery(new Pagination(page, rowsPerPage));
+            result = courierRepository.GetCourier(new Pagination(page, rowsPerPage));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        result.forEach((f) -> {
-            Delivery_Property ft = new Delivery_Property();
-            ft.setId(Integer.toString(f.id));
-            ft.setTanggal_Delivery(f.Tanggal_Delivery);
+        result.forEach((p) -> {
+            Courier_Property cp = new Courier_Property();
+            cp.setId(Integer.toString(p.id));
+            cp.setNama(p.nama);
+            cp.setNo_telp(p.no_telp);
 
-            deliveries.add(ft);
+            Couriers.add(cp);
         });
-        TableViewDelivery.setItems(deliveries);
+        TableViewCourier.setItems(Couriers);
         updateButton();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ColumnId.setCellValueFactory(f -> f.getValue().IdDelivery());
-        ColumnTanggal.setCellValueFactory(f -> f.getValue().TanggalDelivery());
-
+        ColumnId.setCellValueFactory(f -> f.getValue().IdCourier());
+        ColumnNama.setCellValueFactory(f -> f.getValue().NamaCourier());
+        ColumnNomor.setCellValueFactory(f-> f.getValue().no_Courier());
         try {
             updateTable();
         } catch (SQLException e) {

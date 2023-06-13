@@ -1,4 +1,4 @@
-package com.example.projectbd2.Delivery;
+package com.example.projectbd2.Courier;
 
 import com.example.projectbd2.HelloApplication;
 import javafx.fxml.FXML;
@@ -7,24 +7,24 @@ import javafx.scene.control.TextField;
 
 import java.sql.SQLException;
 
-public class Delivery_Delete {
+public class Courier_Delete {
     @FXML
     TextField id;
-    boolean isValid = false;
+    boolean isValid;
     @FXML
     Label warningText;
-    Delivery_Repository deliveryRepository;
+    Courier_Repository courierRepository;
 
     @FXML
     public void onDeleteButtonClick() throws SQLException {
-        deliveryRepository = new Delivery_Repository();
+        courierRepository = new Courier_Repository();
         String inputId = id.getText().replace(" ","");
         isValid = true;
         if (inputId.contains(",")){
             String[] temp = inputId.split(",");
             for (String x : temp) {
-                if (deliveryRepository.cekId(Integer.parseInt(x)) && isValid) {
-                    deliveryRepository.deleteData(Integer.parseInt(x));
+                if (courierRepository.cekId(Integer.parseInt(x)) && isValid) {
+                    courierRepository.deleteData(Integer.parseInt(x));
                 }
                 else {
                     warningText.setText("Input Invalid");
@@ -33,15 +33,15 @@ public class Delivery_Delete {
             }
             if (isValid){
                 HelloApplication app = HelloApplication.getapplicationInstance();
-                app.getDeliveryController().updateTable();
-                app.setPrimaryStage(app.getDelivery());
+                app.getCourierController().updateTable();
+                app.setPrimaryStage(app.getCourier());
             }
         }
         else if (inputId.contains("-")){
             String[] temp = inputId.split("-");
             for (int i = Integer.parseInt(temp[0]) ; i <= Integer.parseInt(temp[1]) ; i++){
-                if (deliveryRepository.cekId(i) && isValid) {
-                    deliveryRepository.deleteData(i);
+                if (courierRepository.cekId(i) && isValid) {
+                    courierRepository.deleteData(i);
                 }
                 else {
                     warningText.setText("Input Invalid");
@@ -50,16 +50,16 @@ public class Delivery_Delete {
             }
             if (isValid){
                 HelloApplication app = HelloApplication.getapplicationInstance();
-                app.getDeliveryController().updateTable();
-                app.setPrimaryStage(app.getDelivery());
+                app.getCourierController().updateTable();
+                app.setPrimaryStage(app.getCourier());
             }
         }
         else {
-            if (deliveryRepository.cekId(Integer.parseInt(id.getText()))){
-                deliveryRepository.deleteData(Integer.parseInt(id.getText()));
+            if (courierRepository.cekId(Integer.parseInt(id.getText()))){
+                courierRepository.deleteData(Integer.parseInt(id.getText()));
                 HelloApplication app = HelloApplication.getapplicationInstance();
-                app.getDeliveryController().updateTable();
-                app.setPrimaryStage(app.getDelivery());
+                app.getCourierController().updateTable();
+                app.setPrimaryStage(app.getCourier());
             }
             else {
                 warningText.setText("Input Invalid");

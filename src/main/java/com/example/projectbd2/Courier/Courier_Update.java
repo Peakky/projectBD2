@@ -1,4 +1,4 @@
-package com.example.projectbd2.Delivery;
+package com.example.projectbd2.Courier;
 
 import com.example.projectbd2.HelloApplication;
 import javafx.fxml.FXML;
@@ -7,27 +7,27 @@ import javafx.scene.control.TextField;
 
 import java.sql.SQLException;
 
-public class Delivery_Update {
+public class Courier_Update {
     @FXML
-    TextField id, Tanggal;
+    TextField id, nama, no_hp;
     @FXML
     Label warningText;
-    Delivery_Repository deliveryRepository;
+    Courier_Repository courierRepository;
 
     @FXML
     public void onEditButtonClick() throws SQLException {
-        deliveryRepository = new Delivery_Repository();
+        courierRepository = new Courier_Repository();
         if (!isNumeric(id.getText())){
             warningText.setText("Id harus angka");
         }
-        else if (!deliveryRepository.cekId(Integer.parseInt(id.getText()))){
+        else if (!courierRepository.cekId(Integer.parseInt(id.getText()))){
             warningText.setText("Id invalid");
         }
         else {
-            deliveryRepository.updateData(Integer.parseInt(id.getText()), Tanggal.getText());
+            courierRepository.updateData(Integer.parseInt(id.getText()), nama.getText(), no_hp.getText());
             HelloApplication app = HelloApplication.getapplicationInstance();
-            app.getDeliveryController().updateTable();
-            app.setPrimaryStage(app.getDelivery());
+            app.getCourierController().updateTable();
+            app.setPrimaryStage(app.getCourier());
         }
     }
 

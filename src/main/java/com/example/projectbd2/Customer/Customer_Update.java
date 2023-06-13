@@ -1,4 +1,4 @@
-package com.example.projectbd2.Delivery;
+package com.example.projectbd2.Customer;
 
 import com.example.projectbd2.HelloApplication;
 import javafx.fxml.FXML;
@@ -7,27 +7,31 @@ import javafx.scene.control.TextField;
 
 import java.sql.SQLException;
 
-public class Delivery_Update {
+public class Customer_Update {
     @FXML
-    TextField id, Tanggal;
+    TextField id, nama, email, number;
     @FXML
     Label warningText;
-    Delivery_Repository deliveryRepository;
+    Customer_Repository customerRepository;
 
     @FXML
     public void onEditButtonClick() throws SQLException {
-        deliveryRepository = new Delivery_Repository();
+        customerRepository = new Customer_Repository();
         if (!isNumeric(id.getText())){
             warningText.setText("Id harus angka");
         }
-        else if (!deliveryRepository.cekId(Integer.parseInt(id.getText()))){
+        else if (!isNumeric(number.getText())){
+            warningText.setText("Number harus angka");
+        }
+
+        else if (!customerRepository.cekId(Integer.parseInt(id.getText()))){
             warningText.setText("Id invalid");
         }
         else {
-            deliveryRepository.updateData(Integer.parseInt(id.getText()), Tanggal.getText());
+            customerRepository.updateData(Integer.parseInt(id.getText()), nama.getText(), email.getText(), (number.getText()));
             HelloApplication app = HelloApplication.getapplicationInstance();
-            app.getDeliveryController().updateTable();
-            app.setPrimaryStage(app.getDelivery());
+            app.getCustomerController().updateTable();
+            app.setPrimaryStage(app.getCustomer());
         }
     }
 

@@ -1,4 +1,4 @@
-package com.example.projectbd2.Delivery;
+package com.example.projectbd2.Courier;
 
 import com.example.projectbd2.Pagination;
 import com.example.projectbd2.connection;
@@ -6,16 +6,16 @@ import com.example.projectbd2.connection;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class Delivery_Repository {
+public class Courier_Repository {
     private Connection conn;
 
-    public Delivery_Repository() throws SQLException {
+    public Courier_Repository() throws SQLException {
         conn = connection.GetConnection();
     }
 
-    public int GetDeliveryCount() throws SQLException {
+    public int GetCourierCount() throws SQLException {
         Statement stmt = conn.createStatement();
-        String sql = "SELECT COUNT(id) FROM delivery";
+        String sql = "SELECT COUNT(id) FROM courier";
         System.out.println(sql);
         ResultSet rs = stmt.executeQuery(sql);
         if(rs.next()){
@@ -25,28 +25,30 @@ public class Delivery_Repository {
         }
     }
 
-    public ArrayList<Delivery> GetDelivery(Pagination pgn) throws SQLException {
-        ArrayList<Delivery> deliveries = new ArrayList<Delivery>();
+    public ArrayList<Courier> GetCourier(Pagination pgn) throws SQLException {
+        ArrayList<Courier> couriers = new ArrayList<Courier>();
         Statement stmt = conn.createStatement();
-        String sql = String.format("SELECT * FROM delivery LIMIT %o OFFSET %o", pgn.limit, pgn.offset);
+        String sql = String.format("SELECT * FROM courier LIMIT %o OFFSET %o",pgn.limit,pgn.offset);
         System.out.println(sql);
         ResultSet rs = stmt.executeQuery(sql);
         while (rs.next()){
-            deliveries.add(
-                    new Delivery(
+            couriers.add(
+                    new Courier(
                             rs.getInt("id"),
-                            rs.getString("Tanggal")
+                            rs.getString("nama"),
+                            rs.getString("no hp")
                     )
             );
         }
-        return deliveries;
+        return couriers;
     }
 
-    public void insertData(String Tanggal) {
-        String Query = "INSERT INTO delivery (Tanggal) VALUES (?)";
+    public void insertData(String nama,String no_hp) {
+        String Query = "INSERT INTO courier (nama, no_hp) VALUES (?,?)";
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(Query);
-            preparedStatement.setString(1, Tanggal);
+            preparedStatement.setString(1, nama);
+            preparedStatement.setString(2, no_hp);
 
             System.out.println(preparedStatement);
             preparedStatement.execute();
@@ -56,10 +58,13 @@ public class Delivery_Repository {
         }
     }
 
-    public void updateData(int id, String Tanggal) {
-        String Query = "UPDATE delivery SET ";
+    public void updateData(int id, String nama, String no_hp ) {
+        String Query = "UPDATE pengguna SET ";
         try {
-            PreparedStatement preparedStatement = conn.prepareStatement(Query + "Tanggal = '" + Tanggal + "' where id = " + id);
+            PreparedStatement preparedStatement = conn.prepareStatement(Query + "nama = '" + nama + "' where id = " + id);
+            System.out.println(preparedStatement);
+            preparedStatement.execute();
+            preparedStatement = conn.prepareStatement(Query + "no hp = '" + no_hp + "' where id = " + id);
             System.out.println(preparedStatement);
             preparedStatement.execute();
 
@@ -70,9 +75,8 @@ public class Delivery_Repository {
             System.out.println(e);
         }
     }
-
     public void deleteData(int id){
-        String Query = "DELETE FROM delivery WHERE id = " + id;
+        String Query = "DELETE FROM courier WHERE id = " + id;
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(Query);
             System.out.println(preparedStatement);
@@ -84,7 +88,7 @@ public class Delivery_Repository {
     }
 
     public boolean cekId(int id){
-        String Query = "select * FROM delivery WHERE id = " + id;
+        String Query = "select * FROM courier WHERE id = " + id;
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(Query);
             System.out.println(preparedStatement);

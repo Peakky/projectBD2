@@ -1,10 +1,10 @@
-package com.example.projectbd2.Delivery;
+package com.example.projectbd2.Order;
 
-public class Delivery {
+public class Order {
     int id;
     String Tanggal_Delivery;
 
-    public Delivery(int id, String Tanggal) {
+    public Order(int id, String Tanggal) {
         this.id = id;
         this.Tanggal_Delivery= Tanggal;
     }

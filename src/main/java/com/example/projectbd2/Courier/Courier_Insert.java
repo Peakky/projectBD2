@@ -1,4 +1,4 @@
-package com.example.projectbd2.Delivery;
+package com.example.projectbd2.Courier;
 
 import com.example.projectbd2.HelloApplication;
 import javafx.fxml.FXML;
@@ -7,22 +7,21 @@ import javafx.scene.control.TextField;
 
 import java.sql.SQLException;
 
-public class Delivery_Insert {
+public class Courier_Insert {
     @FXML
-    TextField Tanggal_Delivery;
+    TextField nama, no_hp;
     @FXML
     Label warningText;
-    Delivery_Repository deliveryRepository;
+    Courier_Repository courierRepository;
 
     @FXML
     public void onAddButtonClick() throws SQLException {
-        deliveryRepository = new Delivery_Repository();
+        courierRepository = new Courier_Repository();
 
-            deliveryRepository.insertData(Tanggal_Delivery.getText());
+            courierRepository.insertData(nama.getText(), no_hp.getText());
             HelloApplication app = HelloApplication.getapplicationInstance();
-            app.getDeliveryController().updateTable();
-            app.setPrimaryStage(app.getDelivery());
-
+            app.getCourierController().updateTable();
+            app.setPrimaryStage(app.getCourier());
     }
 
     public static boolean isNumeric(String s){

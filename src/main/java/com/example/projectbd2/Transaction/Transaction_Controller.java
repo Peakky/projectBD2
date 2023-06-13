@@ -1,4 +1,4 @@
-package com.example.projectbd2.Delivery;
+package com.example.projectbd2.Transaction;
 
 import com.example.projectbd2.HelloApplication;
 import com.example.projectbd2.Pagination;
@@ -16,23 +16,23 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class Delivery_Controller implements Initializable {
+public class Transaction_Controller implements Initializable {
     @FXML
     private Button ButtonNext, ButtonPrev;
     @FXML
-    private TableColumn<Delivery_Property, String> ColumnId,ColumnTanggal;
+    private TableColumn<Transaction_Property, String> ColumnId,ColumnNominal;
     @FXML
-    private TableView<Delivery_Property> TableViewDelivery;
+    private TableView<Transaction_Property> TableViewTransaction;
 
     private int page = 1;
 
     private int rowsPerPage = 12;
 
-    private ObservableList<Delivery_Property> deliveries = FXCollections.observableArrayList();
+    private ObservableList<Transaction_Property> transactions = FXCollections.observableArrayList();
 
-    private Delivery_Repository deliveryRepository = new Delivery_Repository();
+    private Transaction_Repository transactionRepository = new Transaction_Repository();
 
-    public Delivery_Controller() throws SQLException {
+    public Transaction_Controller() throws SQLException {
     }
 
     @FXML
@@ -56,19 +56,19 @@ public class Delivery_Controller implements Initializable {
     @FXML
     void onAddButtonClick(){
         HelloApplication app = HelloApplication.getapplicationInstance();
-        app.setPrimaryStage(app.getDeliveryInsert());
+        app.setPrimaryStage(app.getTransactionInsert());
     }
 
     @FXML
     void onEditButtonClick(){
         HelloApplication app = HelloApplication.getApplicationInstance();
-        app.setPrimaryStage(app.getDeliveryUpdate());
+        app.setPrimaryStage(app.getTransactionUpdate());
     }
 
     @FXML
     void onDeleteButtonClick(){
         HelloApplication app = HelloApplication.getApplicationInstance();
-        app.setPrimaryStage(app.getDeliveryDelete());
+        app.setPrimaryStage(app.getTransactionDelete());
     }
 
     private void updateButton() throws SQLException {
@@ -77,7 +77,7 @@ public class Delivery_Controller implements Initializable {
         } else {
             ButtonPrev.setDisable(false);
         }
-        if (page >= Math.ceil((deliveryRepository.GetDeliveryCount() / Double.valueOf(rowsPerPage)))){
+        if (page >= Math.ceil((transactionRepository.GetTransactionCount() / Double.valueOf(rowsPerPage)))){
             ButtonNext.setDisable(true);
         } else {
             ButtonNext.setDisable(false);
@@ -85,28 +85,27 @@ public class Delivery_Controller implements Initializable {
     }
 
     public void updateTable() throws SQLException {
-        deliveries = FXCollections.observableArrayList();
-        ArrayList<Delivery> result;
+        transactions = FXCollections.observableArrayList();
+        ArrayList<Transaction> result;
         try {
-            result = deliveryRepository.GetDelivery(new Pagination(page, rowsPerPage));
+            result = transactionRepository.GetTransaction(new Pagination(page, rowsPerPage));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        result.forEach((f) -> {
-            Delivery_Property ft = new Delivery_Property();
-            ft.setId(Integer.toString(f.id));
-            ft.setTanggal_Delivery(f.Tanggal_Delivery);
-
-            deliveries.add(ft);
+        result.forEach((t) -> {
+            Transaction_Property tp = new Transaction_Property();
+            tp.setId(Integer.toString(t.id));
+            tp.setNominal(Integer.toString(t.nominal));
+            transactions.add(tp);
         });
-        TableViewDelivery.setItems(deliveries);
+        TableViewTransaction.setItems(transactions);
         updateButton();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ColumnId.setCellValueFactory(f -> f.getValue().IdDelivery());
-        ColumnTanggal.setCellValueFactory(f -> f.getValue().TanggalDelivery());
+        ColumnId.setCellValueFactory(f -> f.getValue().idTransaction());
+        ColumnNominal.setCellValueFactory(f -> f.getValue().NominalTransaction());
 
         try {
             updateTable();

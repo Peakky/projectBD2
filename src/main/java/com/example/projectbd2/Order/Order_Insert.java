@@ -1,5 +1,6 @@
-package com.example.projectbd2.Delivery;
+package com.example.projectbd2.Order;
 
+import com.example.projectbd2.Delivery.Delivery_Repository;
 import com.example.projectbd2.HelloApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -7,21 +8,21 @@ import javafx.scene.control.TextField;
 
 import java.sql.SQLException;
 
-public class Delivery_Insert {
+public class Order_Insert {
     @FXML
-    TextField Tanggal_Delivery;
+    TextField Tanggal_Order;
     @FXML
     Label warningText;
-    Delivery_Repository deliveryRepository;
+    Order_Repository orderRepository;
 
     @FXML
     public void onAddButtonClick() throws SQLException {
-        deliveryRepository = new Delivery_Repository();
+        orderRepository = new Order_Repository();
 
-            deliveryRepository.insertData(Tanggal_Delivery.getText());
-            HelloApplication app = HelloApplication.getapplicationInstance();
-            app.getDeliveryController().updateTable();
-            app.setPrimaryStage(app.getDelivery());
+        orderRepository.insertData(Tanggal_Order.getText());
+        HelloApplication app = HelloApplication.getapplicationInstance();
+        app.getOrderController().updateTable();
+        app.setPrimaryStage(app.getOrder());
 
     }
 
