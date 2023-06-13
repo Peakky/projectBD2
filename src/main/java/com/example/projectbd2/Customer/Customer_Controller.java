@@ -20,7 +20,7 @@ public class Customer_Controller implements Initializable {
     @FXML
     private Button ButtonNext, ButtonPrev;
     @FXML
-    private TableColumn<Customer_Property, String> ColumnId, ColumnNama, ColumnEmail, ColumnNumber;
+    private TableColumn<Customer_Property, String> ColumnIdCustomer, ColumnNamaCustomer, ColumnEmailCustomer, ColumnNumberCustomer;
     @FXML
     private TableView<Customer_Property> TableViewCustomer;
 
@@ -107,10 +107,10 @@ public class Customer_Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ColumnId.setCellValueFactory(f -> f.getValue().Id_Customer());
-        ColumnNama.setCellValueFactory(f -> f.getValue().NamaCustomer());
-        ColumnEmail.setCellValueFactory(f -> f.getValue().EmailCustomer());
-        ColumnNumber.setCellValueFactory(f -> f.getValue().NumberCustomer());
+        ColumnIdCustomer.setCellValueFactory(f -> f.getValue().Id_Customer());
+        ColumnNamaCustomer.setCellValueFactory(f -> f.getValue().NamaCustomer());
+        ColumnEmailCustomer.setCellValueFactory(f -> f.getValue().EmailCustomer());
+        ColumnNumberCustomer.setCellValueFactory(f -> f.getValue().NumberCustomer());
         try {
             updateTable();
         } catch (SQLException e) {

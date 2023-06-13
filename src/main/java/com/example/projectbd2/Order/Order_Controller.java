@@ -20,7 +20,7 @@ public class Order_Controller implements Initializable {
     @FXML
     private Button ButtonNext, ButtonPrev;
     @FXML
-    private TableColumn<Order_Property, String> ColumnId,ColumnTanggal;
+    private TableColumn<Order_Property, String> ColumnIdOrder, ColumnTanggalOrder;
     @FXML
     private TableView<Order_Property> TableViewOrder;
 
@@ -105,8 +105,8 @@ public class Order_Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ColumnId.setCellValueFactory(f -> f.getValue().IdOrder());
-        ColumnTanggal.setCellValueFactory(f -> f.getValue().TanggalOrder());
+        ColumnIdOrder.setCellValueFactory(f -> f.getValue().IdOrder());
+        ColumnTanggalOrder.setCellValueFactory(f -> f.getValue().TanggalOrder());
 
         try {
             updateTable();
