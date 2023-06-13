@@ -1,4 +1,4 @@
-package com.example.projectbd2.DataResi;
+package com.example.projectbd2.Delivery;
 
 public class Delivery {
     int id;
