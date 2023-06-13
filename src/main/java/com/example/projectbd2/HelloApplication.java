@@ -249,8 +249,8 @@ public class HelloApplication extends Application {
 
 
 
-        stage.setTitle("Babi!");
-        stage.setScene(scene);
+        stage.setTitle("Project Database!");
+        stage.setScene(menu);
         stage.show();
     }
 
