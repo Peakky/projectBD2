@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="965.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectbd.DetailController">
+   <children>
+      <TableView fx:id="TableViewDev" layoutX="8.0" layoutY="18.0" prefHeight="608.0" prefWidth="930.0">
+        <columns>
+          <TableColumn prefWidth="96.7999849319458" text="ID Order" />
+          <TableColumn prefWidth="98.4000244140625" text="Tanggal Transaksi" />
+            <TableColumn fx:id="columnNamaCus" prefWidth="162.40000915527344" text="Nama Customer" />
+            <TableColumn fx:id="ColumbNomor" prefWidth="168.0" text="Nomor Telepon Customer" />
+            <TableColumn fx:id="ColumnAlamat" prefWidth="134.4000244140625" text="Alamat Tujuan" />
+            <TableColumn fx:id="ColumnEkspedisi" prefWidth="122.4000244140625" text="Ekspedisi" />
+            <TableColumn fx:id="ColumnGudang" prefWidth="143.19997558593752" text="Nama Gudang" />
+        </columns>
+      </TableView>
+      <Button fx:id="BttAdd" layoutX="399.0" layoutY="637.0" mnemonicParsing="false" onAction="#onAdd" text="Add" />
+      <Button fx:id="BttDelete" layoutX="516.0" layoutY="637.0" mnemonicParsing="false" onAction="#onDelete" text="Delete" />
+      <Button fx:id="BttUpdate" layoutX="451.0" layoutY="637.0" mnemonicParsing="false" text="Update" />
+      <Button layoutX="577.0" layoutY="637.0" mnemonicParsing="false" text="Detail" />
+   </children>
+</AnchorPane>
