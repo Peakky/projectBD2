@@ -44,21 +44,22 @@ public class SupplierRepository {
     }
 
     public void insertData(String Nama, int NomorTelp) throws SQLException {
-        String Query = "INSERT INTO Supplier (Nama) VALUES (?)";
+        String Query = "INSERT INTO Supplier (Nama,Nomor_Telepon) VALUES (?,?)";
         PreparedStatement preparedStatement = conn.prepareStatement(Query);
-
         preparedStatement.setString(1, Nama);
-
+        preparedStatement.setInt(2, NomorTelp);
         System.out.println(preparedStatement);
         preparedStatement.execute();
     }
 
-    public void updateData(int id,String Nama) throws SQLException {
+    public void updateData(int id,String Nama, int Nomor_Telepon) throws SQLException {
         String Query = "UPDATE Supplier SET ";
-        PreparedStatement preparedStatement = conn.prepareStatement(Query + "Nama = '" + Nama + "' where id = " + id);
+        PreparedStatement preparedStatement = conn.prepareStatement(Query + "Nama = '" + Nama + "' where id = " + id );
         System.out.println(preparedStatement);
         preparedStatement.execute();
-
+        preparedStatement = conn.prepareStatement(Query + "No_Telepon = '" + Nomor_Telepon  + "' where id = " + id);
+        System.out.println(preparedStatement);
+        preparedStatement.execute();
     }
     public void deleteData(int id) throws SQLException {
         String Query = "DELETE FROM Supplier WHERE id = " + id;

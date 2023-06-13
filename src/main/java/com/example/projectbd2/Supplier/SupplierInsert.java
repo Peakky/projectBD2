@@ -11,7 +11,6 @@ import java.sql.SQLIntegrityConstraintViolationException;
 public class SupplierInsert {
     @FXML
     TextField  NamaSup, NoTelepon;
-    boolean isValid;
     Label warningText;
     SupplierRepository supplierRepository;
     @FXML
