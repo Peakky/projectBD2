@@ -22,6 +22,7 @@ public class Order_Controller implements Initializable {
     @FXML
     private TableColumn<Order_Property, String> ColumnIdOrder, ColumnTanggalOrder;
     @FXML
+
     private TableView<Order_Property> TableViewOrder;
 
     private int page = 1;
