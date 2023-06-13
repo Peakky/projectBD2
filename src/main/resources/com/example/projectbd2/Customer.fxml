@@ -9,19 +9,19 @@
     <children>
         <AnchorPane layoutY="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="696.0" prefWidth="910.0">
             <children>
-                <TableView layoutY="-2.0" prefHeight="400.0" prefWidth="910.0">
+                <TableView fx:id="TableViewCustomer" layoutY="-2.0" prefHeight="400.0" prefWidth="910.0">
                     <columns>
-                        <TableColumn prefWidth="177.60000002384186" text="Customer ID" />
-                        <TableColumn minWidth="0.0" prefWidth="184.00006103515625" text="Nama" />
-                        <TableColumn prefWidth="351.20001220703125" text="Alamat" />
-                        <TableColumn prefWidth="196.0" text="No telp" />
+                        <TableColumn fx:id="ColumnIdCustomer" prefWidth="177.60000002384186" text="Customer ID" />
+                        <TableColumn fx:id="ColumnNamaCustomer" minWidth="0.0" prefWidth="184.00006103515625" text="Nama" />
+                        <TableColumn fx:id="ColumnEmailCustomer" prefWidth="351.20001220703125" text="Alamat" />
+                        <TableColumn fx:id="ColumnNumberCustomer" prefWidth="196.0" text="No telp" />
                     </columns>
                 </TableView>
             </children>
         </AnchorPane>
-        <Button layoutX="512.0" layoutY="462.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Button" />
-        <Button layoutX="255.0" layoutY="462.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Update" />
-        <Button layoutX="24.0" layoutY="462.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Add" />
-        <Button layoutX="758.0" layoutY="462.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Cancel" />
+        <Button layoutX="512.0" layoutY="462.0" mnemonicParsing="false" onAction="#onDeleteButtonClick" prefHeight="26.0" prefWidth="154.0" text="Delete" />
+        <Button fx:id="onEditButtonClick" layoutX="255.0" layoutY="462.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Update" />
+        <Button fx:id="onAddButtonClick" layoutX="24.0" layoutY="462.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Add" />
+        <Button layoutX="758.0" layoutY="462.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="26.0" prefWidth="154.0" text="Cancel" />
     </children>
 </AnchorPane>

@@ -11,12 +11,12 @@
          <columns>
             <TableColumn fx:id="ColumnIdTransaction" prefWidth="292.800048828125" text="Transaction ID" />
             <TableColumn fx:id="ColumnNominalTransaction" minWidth="0.0" prefWidth="277.5999755859375" text="Price" />
-            <TableColumn prefWidth="336.0" text="Customer ID" />
+            <TableColumn fx:id="ColumnIdCustomer" prefWidth="336.0" text="Customer ID" />
          </columns>
       </TableView>
-      <Button layoutX="477.0" layoutY="418.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Delete" />
-      <Button layoutX="260.0" layoutY="418.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Update" />
-      <Button layoutX="43.0" layoutY="418.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Add" />
-      <Button layoutX="705.0" layoutY="418.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Cancel" />
+      <Button layoutX="477.0" layoutY="418.0" mnemonicParsing="false" onAction="#onDeleteButtonClick" prefHeight="26.0" prefWidth="154.0" text="Delete" />
+      <Button layoutX="260.0" layoutY="418.0" mnemonicParsing="false" onAction="#onEditButtonClick" prefHeight="26.0" prefWidth="154.0" text="Update" />
+      <Button layoutX="43.0" layoutY="418.0" mnemonicParsing="false" onAction="#onAddButtonClick" prefHeight="26.0" prefWidth="154.0" text="Add" />
+      <Button layoutX="705.0" layoutY="418.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="26.0" prefWidth="154.0" text="Cancel" />
    </children>
 </AnchorPane>
