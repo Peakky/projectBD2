@@ -1,7 +1,6 @@
 package com.example.projectbd2.Product;
 
 import com.example.projectbd2.Pagination;
-import com.example.projectbd2.Supplier.Supplier;
 import com.example.projectbd2.connection;
 
 import java.sql.*;

@@ -22,6 +22,8 @@ import com.example.projectbd2.Transaction.Transaction_Controller;
 import com.example.projectbd2.Transaction.Transaction_Delete;
 import com.example.projectbd2.Transaction.Transaction_Insert;
 import com.example.projectbd2.Transaction.Transaction_Update;
+import com.example.projectbd2.Warehouse.Warehouse;
+import com.example.projectbd2.Warehouse.WarehouseController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -39,6 +41,7 @@ public class HelloApplication extends Application {
     private Scene order,orderInsert,orderUpdate,orderDelete;
     private Scene transaction,transactionInsert,transactionUpdate,transactionDelete;
     private Scene Supplier, SupplierInsert, SupplierUpdate, SupplierDelete;
+    private Scene Warehouse, WarehouseInsert, WarehouseUpdate, WarehouseDelete;
     private Courier_Controller courierController;
     private Courier_Insert courierInsertController;
     private Courier_Update courierUpdateController;
@@ -60,6 +63,7 @@ public class HelloApplication extends Application {
     private Order_Insert orderInsertController;
     private Order_Update orderUpdateController;
     private Order_Delete orderDeleteController;
+    private WarehouseController warehouseController;
     private SupplierController supplierController;
 
     public void setPrimaryStage(Scene scene){
@@ -323,6 +327,26 @@ public class HelloApplication extends Application {
 
     public void setProductController(ProductController productController) {
         this.productController = productController;
+    }
+
+    public Scene getWarehouse() {
+        return Warehouse;
+    }
+
+    public Scene getWarehouseInsert() {
+        return WarehouseInsert;
+    }
+
+    public Scene getWarehouseUpdate() {
+        return WarehouseUpdate;
+    }
+
+    public Scene getWarehouseDelete() {
+        return WarehouseDelete;
+    }
+
+    public WarehouseController getWarehouseController() {
+        return warehouseController;
     }
 
     @Override
