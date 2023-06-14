@@ -11,7 +11,7 @@ import java.sql.SQLIntegrityConstraintViolationException;
 
 public class ProductInsert {
     @FXML
-    TextField NamaProduct, JumlahProduct, SupplierID;
+    TextField NamaProduct, JumlahProduct, SupplierID,WarehouseID;
     Label warningText;
     ProductRepository productRepository;
     @FXML
@@ -21,11 +21,11 @@ public class ProductInsert {
             warningText.setText("Jumlah Product Harus Angka!");
         } else if (!isNumeric(SupplierID.getText())) {
             warningText.setText("Supplier ID Harus Angka");
-        }
-
-        else {
+        } else if (!isNumeric(WarehouseID.getText())) {
+            warningText.setText("Warehouse ID harus angka!");
+        } else {
             try {
-                productRepository.insertData(NamaProduct.getText(),Integer.parseInt(JumlahProduct.getText()), Integer.parseInt(SupplierID.getText()));
+                productRepository.insertData(NamaProduct.getText(),Integer.parseInt(JumlahProduct.getText()), Integer.parseInt(SupplierID.getText()), Integer.parseInt(WarehouseID.getText()));
             } catch (SQLIntegrityConstraintViolationException e){
                 warningText.setText("Pengguna ID Tidak ditemukan");
             }

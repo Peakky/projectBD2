@@ -20,7 +20,7 @@ public class ProductController implements Initializable {
     @FXML
     private Button ButtonNext, ButtonPrev;
     @FXML
-    private TableColumn<ProductProperty, String> ColumnID, ColumnNama, ColumnJumlah,ColumnSupplierID;
+    private TableColumn<ProductProperty, String> ColumnID, ColumnNama, ColumnJumlah,ColumnSupplierID,ColumnWarehouseID;
     @FXML
     private TableView<ProductProperty> TableProduct;
 
@@ -97,6 +97,7 @@ public class ProductController implements Initializable {
             tp.setNamaProduct(t.NamaProduct);
             tp.setStockProduct(Integer.toString(t.StockProduct));
             tp.setSupplierID(Integer.toString(t.SupplierID));
+            tp.setWarehouseID(Integer.toString(t.WarehouseID));
 
             product.add(tp);
         });
@@ -109,7 +110,7 @@ public class ProductController implements Initializable {
         ColumnNama.setCellValueFactory(f -> f.getValue().namaProductProperty());
         ColumnJumlah.setCellValueFactory(f -> f.getValue().stockProductProperty());
         ColumnSupplierID.setCellValueFactory(f -> f.getValue().supplierIDProperty());
-
+        ColumnWarehouseID.setCellValueFactory(f -> f.getValue().warehouseIDProperty());
         try {
             updateTable();
         } catch (SQLException e) {

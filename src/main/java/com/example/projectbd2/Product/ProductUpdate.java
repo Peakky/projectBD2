@@ -10,7 +10,7 @@ import java.sql.SQLIntegrityConstraintViolationException;
 
 public class ProductUpdate {
     @FXML
-    TextField id, NamaProduct, JumlahProduct, SupplierID;
+    TextField id, NamaProduct, JumlahProduct, SupplierID,WarehouseID;
     boolean isValid;
     @FXML
     Label warningText;
@@ -28,9 +28,11 @@ public class ProductUpdate {
             warningText.setText("Jumlah Produk Harus angka!");
         } else if (!isNumeric(SupplierID.getText())) {
             warningText.setText("Supplier ID harus angka!");
+        } else if (!isNumeric(WarehouseID.getText())) {
+            warningText.setText("WarehouseID harus angka!");
         } else {
             try {
-                productRepository.updateData(Integer.parseInt(id.getText()), NamaProduct.getText(), Integer.parseInt(JumlahProduct.getText()), Integer.parseInt(SupplierID.getText()));
+                productRepository.updateData(Integer.parseInt(id.getText()), NamaProduct.getText(), Integer.parseInt(JumlahProduct.getText()), Integer.parseInt(SupplierID.getText()), Integer.parseInt(WarehouseID.getText()));
             } catch (SQLIntegrityConstraintViolationException e) {
                 warningText.setText("Supplier ID Tidak ditemukan");
                 isValid = false;
