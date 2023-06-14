@@ -18,15 +18,16 @@ public class SupplierInsert {
         supplierRepository = new SupplierRepository();
         if (!isNumeric(NoTelepon.getText())){
             warningText.setText("No Telepon Harus Angka!");
+        }else {
+            try {
+                supplierRepository.insertData(NamaSup.getText(), Integer.parseInt(NoTelepon.getText()));
+            } catch (SQLIntegrityConstraintViolationException e) {
+                warningText.setText("Gagal Input");
+            }
+            HelloApplication app = HelloApplication.getapplicationInstance();
+            app.getSupplierController().updateTable();
+            app.setPrimaryStage(app.getSupplier());
         }
-        try {
-            supplierRepository.insertData(NamaSup.getText(), Integer.parseInt(NoTelepon.getText()));
-        } catch (SQLIntegrityConstraintViolationException e){
-            warningText.setText("Gagal Input");
-        }
-        HelloApplication app = HelloApplication.getapplicationInstance();
-        app.getSupplierController().updateTable();
-        app.setPrimaryStage(app.getSupplier());
     }
 
     public static boolean isNumeric(String s){

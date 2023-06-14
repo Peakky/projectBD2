@@ -55,19 +55,19 @@ public class SupplierController implements Initializable {
     @FXML
     void onAddButtonClick(){
         HelloApplication app = HelloApplication.getapplicationInstance();
-        app.setPrimaryStage(app.getTransactionInsert());
+        app.setPrimaryStage(app.getSupplierInsert());
     }
 
     @FXML
     void onEditButtonClick(){
         HelloApplication app = HelloApplication.getApplicationInstance();
-        app.setPrimaryStage(app.getTransactionUpdate());
+        app.setPrimaryStage(app.getSupplierUpdate());
     }
 
     @FXML
     void onDeleteButtonClick(){
         HelloApplication app = HelloApplication.getApplicationInstance();
-        app.setPrimaryStage(app.getTransactionDelete());
+        app.setPrimaryStage(app.getSupplierDelete());
     }
 
     private void updateButton() throws SQLException {
