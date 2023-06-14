@@ -16,6 +16,7 @@ import com.example.projectbd2.Order.Order_Controller;
 import com.example.projectbd2.Order.Order_Delete;
 import com.example.projectbd2.Order.Order_Insert;
 import com.example.projectbd2.Order.Order_Update;
+import com.example.projectbd2.Product.ProductController;
 import com.example.projectbd2.Supplier.SupplierController;
 import com.example.projectbd2.Transaction.Transaction_Controller;
 import com.example.projectbd2.Transaction.Transaction_Delete;
@@ -34,6 +35,7 @@ public class HelloApplication extends Application {
     private Scene courier,courierInsert,courierUpdate,courierDelete;
     private Scene customer,customerInsert,customerUpdate,customerDelete;
     private Scene delivery,deliveryInsert,deliveryUpdate,deliveryDelete;
+    private Scene Product,ProductInsert,ProductUpdate,ProductDelete;
     private Scene order,orderInsert,orderUpdate,orderDelete;
     private Scene transaction,transactionInsert,transactionUpdate,transactionDelete;
     private Scene Supplier, SupplierInsert, SupplierUpdate, SupplierDelete;
@@ -45,6 +47,7 @@ public class HelloApplication extends Application {
     private Customer_Insert customerInsertController;
     private Customer_Update customerUpdateController;
     private Customer_Delete customerDeleteController;
+    private ProductController productController;
     private Delivery_Controller deliveryController;
     private Delivery_Insert deliveryInsertController;
     private Delivery_Update deliveryUpdateController;
@@ -280,6 +283,46 @@ public class HelloApplication extends Application {
 
     public void setSupplierDelete(Scene supplierDelete) {
         SupplierDelete = supplierDelete;
+    }
+
+    public Scene getProduct() {
+        return Product;
+    }
+
+    public void setProduct(Scene product) {
+        Product = product;
+    }
+
+    public Scene getProductInsert() {
+        return ProductInsert;
+    }
+
+    public void setProductInsert(Scene productInsert) {
+        ProductInsert = productInsert;
+    }
+
+    public Scene getProductUpdate() {
+        return ProductUpdate;
+    }
+
+    public void setProductUpdate(Scene productUpdate) {
+        ProductUpdate = productUpdate;
+    }
+
+    public Scene getProductDelete() {
+        return ProductDelete;
+    }
+
+    public void setProductDelete(Scene productDelete) {
+        ProductDelete = productDelete;
+    }
+
+    public ProductController getProductController() {
+        return productController;
+    }
+
+    public void setProductController(ProductController productController) {
+        this.productController = productController;
     }
 
     @Override

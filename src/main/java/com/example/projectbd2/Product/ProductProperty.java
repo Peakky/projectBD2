@@ -6,11 +6,13 @@ public class ProductProperty {
     SimpleStringProperty ProductID;
     SimpleStringProperty NamaProduct;
     SimpleStringProperty SupplierID;
+    SimpleStringProperty StockProduct;
 
     public ProductProperty() {
         ProductID = new SimpleStringProperty(this, "Product ID");
         NamaProduct = new SimpleStringProperty(this, "Nama Product");
         SupplierID = new SimpleStringProperty(this, "Supplier ID");
+        StockProduct = new SimpleStringProperty(this, "Product Ready");
 
     }
 
@@ -48,5 +50,17 @@ public class ProductProperty {
 
     public void setSupplierID(String supplierID) {
         this.SupplierID.set(supplierID);
+    }
+
+    public String getStockProduct() {
+        return StockProduct.get();
+    }
+
+    public SimpleStringProperty stockProductProperty() {
+        return StockProduct;
+    }
+
+    public void setStockProduct(String stockProduct) {
+        this.StockProduct.set(stockProduct);
     }
 }

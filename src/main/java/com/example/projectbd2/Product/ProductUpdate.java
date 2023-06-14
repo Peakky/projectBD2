@@ -1,4 +1,4 @@
-package com.example.projectbd2.Supplier;
+package com.example.projectbd2.Product;
 
 import com.example.projectbd2.HelloApplication;
 import javafx.fxml.FXML;
@@ -8,35 +8,37 @@ import javafx.scene.control.TextField;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 
-public class SupplierUpdate {
+public class ProductUpdate {
     @FXML
-    TextField id, NamaSup, NoTelepon;
+    TextField id, NamaProduct, JumlahProduct, SupplierID;
     boolean isValid;
     @FXML
     Label warningText;
-    SupplierRepository supplierRepository;
+    ProductRepository productRepository;
 
     @FXML
     public void onEditButtonClick() throws SQLException {
-        supplierRepository = new SupplierRepository();
+        productRepository = new ProductRepository();
         if (!isNumeric(id.getText())){
             warningText.setText("Id harus angka!");
         }
-        else if (!supplierRepository.cekId(Integer.parseInt(id.getText()))){
+        else if (!productRepository.cekId(Integer.parseInt(id.getText()))){
             warningText.setText("Id invalid");
-        } else if (!isNumeric(NoTelepon.getText())) {
-            warningText.setText("No Telepon Harus angka!");
-        }else {
+        } else if (!isNumeric(JumlahProduct.getText())) {
+            warningText.setText("Jumlah Produk Harus angka!");
+        } else if (!isNumeric(SupplierID.getText())) {
+            warningText.setText("Supplier ID harus angka!");
+        } else {
             try {
-                supplierRepository.updateData(Integer.parseInt(id.getText()), NamaSup.getText(), Integer.parseInt(NoTelepon.getText()));
+                productRepository.updateData(Integer.parseInt(id.getText()), NamaProduct.getText(), Integer.parseInt(JumlahProduct.getText()), Integer.parseInt(SupplierID.getText()));
             } catch (SQLIntegrityConstraintViolationException e) {
-                warningText.setText("Pengguna ID Tidak ditemukan");
+                warningText.setText("Supplier ID Tidak ditemukan");
                 isValid = false;
             }
             if (isValid) {
                 HelloApplication app = HelloApplication.getapplicationInstance();
-                app.getSupplierController().updateTable();
-                app.setPrimaryStage(app.getSupplier());
+                app.getProductController().updateTable();
+                app.setPrimaryStage(app.getProduct());
             }
         }
     }
