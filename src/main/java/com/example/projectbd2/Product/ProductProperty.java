@@ -1,6 +1,7 @@
 package com.example.projectbd2.Product;
 
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 
 public class ProductProperty {
     SimpleStringProperty ProductID;
@@ -77,4 +78,5 @@ public class ProductProperty {
     public void setWarehouseID(String warehouseID) {
         this.WarehouseID.set(warehouseID);
     }
+
 }
