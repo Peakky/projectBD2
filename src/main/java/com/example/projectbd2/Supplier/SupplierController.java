@@ -20,7 +20,7 @@ public class SupplierController implements Initializable {
     @FXML
     private Button ButtonNext, ButtonPrev;
     @FXML
-    private TableColumn<SupplierProperty, String> IDSup, namaSup, NoTelp;
+    private TableColumn<SupplierProperty, String> IDSup, namaSup, NoTelpSup;
     @FXML
     private TableView<SupplierProperty> TableSupplier;
 
@@ -95,7 +95,7 @@ public class SupplierController implements Initializable {
             SupplierProperty tp = new SupplierProperty();
             tp.setIdSup(Integer.toString(t.id));
             tp.setNamaSup(t.namaSup);
-
+            tp.setNoTelp(Integer.toString(t.NoTelp));
             supplier.add(tp);
         });
         TableSupplier.setItems(supplier);
@@ -106,7 +106,7 @@ public class SupplierController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         IDSup.setCellValueFactory(f -> f.getValue().idSupProperty());
         namaSup.setCellValueFactory(f -> f.getValue().namaSupProperty());
-
+        NoTelpSup.setCellValueFactory(f-> f.getValue().noTelpProperty());
         try {
             updateTable();
         } catch (SQLException e) {

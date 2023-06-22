@@ -36,7 +36,8 @@ public class Order_Repository {
             orders.add(
                     new Order(
                             rs.getInt("id"),
-                            rs.getString("Tanggal")
+                            rs.getString("Tanggal"),
+                            rs.getInt("transaction id")
                     )
             );
         }

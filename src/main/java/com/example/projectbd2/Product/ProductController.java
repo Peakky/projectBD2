@@ -20,7 +20,7 @@ public class ProductController implements Initializable {
     @FXML
     private Button ButtonNext, ButtonPrev;
     @FXML
-    private TableColumn<ProductProperty, String> ColumnID, ColumnNama, ColumnJumlah,ColumnSupplierID,ColumnWarehouseID;
+    private TableColumn<ProductProperty, String> ColumnProductID, ColumnNamaProduct, ColumnJumlahProduct,ColumnSupplierFK,ColumnWarehouseFK;
     @FXML
     private TableView<ProductProperty> TableProduct;
 
@@ -96,7 +96,7 @@ public class ProductController implements Initializable {
             tp.setProductID(Integer.toString(t.ProductID));
             tp.setNamaProduct(t.NamaProduct);
             tp.setStockProduct(Integer.toString(t.StockProduct));
-            tp.setSupplierID(Integer.toString(t.SupplierID));
+            tp.setSupplierID(Integer.toString(t.SupplierFK));
             tp.setWarehouseID(Integer.toString(t.WarehouseID));
 
             product.add(tp);
@@ -106,11 +106,11 @@ public class ProductController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ColumnID.setCellValueFactory(f -> f.getValue().productIDProperty());
-        ColumnNama.setCellValueFactory(f -> f.getValue().namaProductProperty());
-        ColumnJumlah.setCellValueFactory(f -> f.getValue().stockProductProperty());
-        ColumnSupplierID.setCellValueFactory(f -> f.getValue().supplierIDProperty());
-        ColumnWarehouseID.setCellValueFactory(f -> f.getValue().warehouseIDProperty());
+        ColumnProductID.setCellValueFactory(f -> f.getValue().productIDProperty());
+        ColumnNamaProduct.setCellValueFactory(f -> f.getValue().namaProductProperty());
+        ColumnJumlahProduct.setCellValueFactory(f -> f.getValue().stockProductProperty());
+        ColumnSupplierFK.setCellValueFactory(f -> f.getValue().supplierIDProperty());
+        ColumnWarehouseFK.setCellValueFactory(f -> f.getValue().warehouseIDProperty());
         try {
             updateTable();
         } catch (SQLException e) {

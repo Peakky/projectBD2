@@ -20,7 +20,7 @@ public class Order_Controller implements Initializable {
     @FXML
     private Button ButtonNext, ButtonPrev;
     @FXML
-    private TableColumn<Order_Property, String> ColumnIdOrder, ColumnTanggalOrder;
+    private TableColumn<Order_Property, String> ColumnIdOrder, ColumnTanggalOrder,ColumnTransactionFK;
     @FXML
 
     private TableView<Order_Property> TableViewOrder;
