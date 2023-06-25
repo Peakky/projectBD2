@@ -44,7 +44,7 @@ public class Order_Repository {
         return orders;
     }
 
-    public void insertData(String Tanggal, int transactionID) {
+    public void insertData(String Tanggal, int transactionID) throws SQLException{
         String Query = "INSERT INTO order (Tanggal,Transaction_ID) VALUES (?,?)";
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(Query);
