@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectbd2.Transaction.Transaction_Controller">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectbd2.Customer.Customer_Controller">
     <children>
         <AnchorPane layoutY="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="696.0" prefWidth="910.0">
             <children>
@@ -20,10 +20,10 @@
             </children>
         </AnchorPane>
         <Button layoutX="512.0" layoutY="462.0" mnemonicParsing="false" onAction="#onDeleteButtonClick" prefHeight="26.0" prefWidth="154.0" text="Delete" />
-        <Button fx:id="onEditButtonClick" layoutX="255.0" layoutY="462.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Update" />
+        <Button layoutX="255.0" layoutY="462.0" mnemonicParsing="false" onAction="#onEditButtonClick" prefHeight="26.0" prefWidth="154.0" text="Update" />
         <Button fx:id="onAddButtonClick" layoutX="24.0" layoutY="462.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Add" />
         <Button layoutX="758.0" layoutY="462.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="26.0" prefWidth="154.0" text="Cancel" />
-      <Button layoutX="842.0" layoutY="417.0" mnemonicParsing="false" text="-&gt;" />
-      <Button layoutX="65.0" layoutY="417.0" mnemonicParsing="false" text="&lt;-" />
+      <Button fx:id="ButtonNext" layoutX="842.0" layoutY="417.0" mnemonicParsing="false" onAction="#onNextButtonClick" text="-&gt;" />
+      <Button fx:id="ButtonPrev" layoutX="65.0" layoutY="417.0" mnemonicParsing="false" onAction="#onPrevButtonClick" text="&lt;-" />
     </children>
 </AnchorPane>

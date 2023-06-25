@@ -8,8 +8,7 @@
    <children>
       <TextField fx:id="penggunaId" layoutX="178.0" layoutY="190.0" prefHeight="26.0" prefWidth="277.0" />
       <Text layoutX="73.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pengguna ID" wrappingWidth="115.7366943359375" />
-      <Button layoutX="189.0" layoutY="252.0" mnemonicParsing="false" onAction="#onAddButtonClick" text="Add" />
-      <Button layoutX="317.0" layoutY="252.0" mnemonicParsing="false" text="Cancel" />
+      <Button layoutX="297.0" layoutY="245.0" mnemonicParsing="false" onAction="#onAddButtonClick" text="Add" />
       <TextField fx:id="nominal" layoutX="177.0" layoutY="144.0" prefHeight="26.0" prefWidth="277.0" />
       <Text layoutX="72.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price" wrappingWidth="115.7366943359375" />
    </children>

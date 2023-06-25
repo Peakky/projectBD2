@@ -11,7 +11,7 @@ import java.sql.SQLIntegrityConstraintViolationException;
 
 public class ProductInsert {
     @FXML
-    TextField NamaProduct, JumlahProduct, SupplierID,WarehouseID;
+        TextField NamaProduct, JumlahProduct, SupplierID,WarehouseID;
     Label warningText;
     ProductRepository productRepository;
     @FXML

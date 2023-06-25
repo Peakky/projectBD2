@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectbd2.Transaction.Transaction_Update">
    <children>
-      <TextField layoutX="178.0" layoutY="119.0" prefHeight="26.0" prefWidth="277.0" />
-      <TextField layoutX="178.0" layoutY="184.0" prefHeight="26.0" prefWidth="277.0" />
+      <TextField fx:id="id" layoutX="178.0" layoutY="119.0" prefHeight="26.0" prefWidth="277.0" />
+      <TextField fx:id="penggunaid" layoutX="178.0" layoutY="184.0" prefHeight="26.0" prefWidth="277.0" />
       <Text layoutX="73.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transaction ID" wrappingWidth="115.7366943359375" />
       <Text layoutX="73.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CustomerID" wrappingWidth="115.7366943359375" />
-      <Button layoutX="178.0" layoutY="246.0" mnemonicParsing="false" text="Update" />
-      <Button layoutX="317.0" layoutY="246.0" mnemonicParsing="false" text="Cancel" />
-      <TextField layoutX="177.0" layoutY="152.0" prefHeight="26.0" prefWidth="277.0" />
+      <Button layoutX="288.0" layoutY="242.0" mnemonicParsing="false" onAction="#onEditButtonClick" text="Update" />
+      <TextField fx:id="nominal" layoutX="177.0" layoutY="152.0" prefHeight="26.0" prefWidth="277.0" />
       <Text layoutX="72.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price" wrappingWidth="115.7366943359375" />
    </children>
 </AnchorPane>

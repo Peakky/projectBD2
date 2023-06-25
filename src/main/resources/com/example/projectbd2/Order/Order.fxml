@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectbd2.Order.Order_Controller">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectbd2.Order.Order_Controller">
    <children>
       <AnchorPane layoutX="-2.0" layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="910.0">
          <children>
@@ -13,7 +13,7 @@
                <columns>
                   <TableColumn fx:id="ColumnIdOrder" prefWidth="295.20001220703125" text="Order ID" />
                   <TableColumn fx:id="ColumnTanggalOrder" prefWidth="316.79998779296875" text="Tanggal Order" />
-                  <TableColumn fx:id="ColumnIdTransaction" prefWidth="297.5999755859375" text="Transaction ID" />
+                  <TableColumn fx:id="ColumnTransactionFK" prefWidth="297.5999755859375" text="Transaction ID" />
                </columns>
             </TableView>
          </children>
@@ -22,7 +22,7 @@
       <Button layoutX="242.0" layoutY="472.0" mnemonicParsing="false" onAction="#onEditButtonClick" prefHeight="26.0" prefWidth="154.0" text="Update" />
       <Button layoutX="11.0" layoutY="472.0" mnemonicParsing="false" onAction="#onAddButtonClick" prefHeight="26.0" prefWidth="154.0" text="Add" />
       <Button layoutX="745.0" layoutY="472.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="26.0" prefWidth="154.0" text="Cancel" />
-      <Button layoutX="842.0" layoutY="427.0" mnemonicParsing="false" text="-&gt;" />
-      <Button layoutX="65.0" layoutY="427.0" mnemonicParsing="false" text="&lt;-" />
+      <Button fx:id="ButtonNext" layoutX="842.0" layoutY="427.0" mnemonicParsing="false" onAction="#onNextButtonClick" text="-&gt;" />
+      <Button fx:id="ButtonPrev" layoutX="65.0" layoutY="427.0" mnemonicParsing="false" onAction="#ButtonPrev" text="&lt;-" />
    </children>
 </AnchorPane>
