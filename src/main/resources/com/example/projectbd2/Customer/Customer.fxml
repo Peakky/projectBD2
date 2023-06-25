@@ -23,5 +23,7 @@
         <Button fx:id="onEditButtonClick" layoutX="255.0" layoutY="462.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Update" />
         <Button fx:id="onAddButtonClick" layoutX="24.0" layoutY="462.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Add" />
         <Button layoutX="758.0" layoutY="462.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="26.0" prefWidth="154.0" text="Cancel" />
+      <Button layoutX="842.0" layoutY="417.0" mnemonicParsing="false" text="-&gt;" />
+      <Button layoutX="65.0" layoutY="417.0" mnemonicParsing="false" text="&lt;-" />
     </children>
 </AnchorPane>

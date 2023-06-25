@@ -22,5 +22,7 @@
             <Button layoutX="677.0" layoutY="461.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="26.0" prefWidth="154.0" text="Cancel" />
          </children>
       </AnchorPane>
+      <Button layoutX="852.0" layoutY="427.0" mnemonicParsing="false" text="-&gt;" />
+      <Button layoutX="75.0" layoutY="427.0" mnemonicParsing="false" text="&lt;-" />
    </children>
 </AnchorPane>
