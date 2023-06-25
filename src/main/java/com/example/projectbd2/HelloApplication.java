@@ -539,7 +539,7 @@ public class HelloApplication extends Application {
 
 
         stage.setTitle("Project Database!");
-        stage.setScene(menu);
+        stage.setScene(scene);
         stage.show();
     }
 
