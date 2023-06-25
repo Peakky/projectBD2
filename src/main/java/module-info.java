@@ -2,7 +2,7 @@ module com.example.projectbd2 {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
-//    requires io.github.cdimascio.dotenv.java;
+    requires io.github.cdimascio.dotenv.java;
 
     exports com.example.projectbd2;
     exports com.example.projectbd2.Courier;
