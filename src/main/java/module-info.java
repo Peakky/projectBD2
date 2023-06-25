@@ -1,4 +1,4 @@
-module com.example.projectbd2 {
+module com.example.projectbd2{
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;

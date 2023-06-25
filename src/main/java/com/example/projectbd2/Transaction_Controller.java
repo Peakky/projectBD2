@@ -1,7 +1,10 @@
-package com.example.projectbd2.Warehouse;
+package com.example.projectbd2;
 
 import com.example.projectbd2.HelloApplication;
 import com.example.projectbd2.Pagination;
+import com.example.projectbd2.Transaction.Transaction;
+import com.example.projectbd2.Transaction.Transaction_Property;
+import com.example.projectbd2.Transaction.Transaction_Repository;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,23 +19,23 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class WarehouseController implements Initializable {
+public class Transaction_Controller implements Initializable {
     @FXML
     private Button ButtonNext, ButtonPrev;
     @FXML
-    private TableColumn<WarehouseProperty, String> ColumnID, ColumnNama,ColumnAlamat, ColumnNoTelp;
+    private TableColumn<Transaction_Property, String> ColumnIdTransaction, ColumnNominalTransaction, ColumnCustomerID;
     @FXML
-    private TableView<WarehouseProperty> TableWarehouse;
+    private TableView<Transaction_Property> TableViewTransaction;
 
     private int page = 1;
 
     private int rowsPerPage = 12;
 
-    private ObservableList<WarehouseProperty> warehouseProperties = FXCollections.observableArrayList();
+    private ObservableList<Transaction_Property> transactions = FXCollections.observableArrayList();
 
-    private WarehouseRepository warehouseRepository = new WarehouseRepository();
+    private Transaction_Repository transactionRepository = new Transaction_Repository();
 
-    public WarehouseController() throws SQLException {
+    public Transaction_Controller() throws SQLException {
     }
 
     @FXML
@@ -56,19 +59,19 @@ public class WarehouseController implements Initializable {
     @FXML
     void onAddButtonClick(){
         HelloApplication app = HelloApplication.getapplicationInstance();
-        app.setPrimaryStage(app.getWarehouseInsert());
+        app.setPrimaryStage(app.getTransactionInsert());
     }
 
     @FXML
     void onEditButtonClick(){
         HelloApplication app = HelloApplication.getApplicationInstance();
-        app.setPrimaryStage(app.getWarehouseUpdate());
+        app.setPrimaryStage(app.getTransactionUpdate());
     }
 
     @FXML
     void onDeleteButtonClick(){
         HelloApplication app = HelloApplication.getApplicationInstance();
-        app.setPrimaryStage(app.getWarehouseDelete());
+        app.setPrimaryStage(app.getTransactionDelete());
     }
 
     private void updateButton() throws SQLException {
@@ -77,7 +80,7 @@ public class WarehouseController implements Initializable {
         } else {
             ButtonPrev.setDisable(false);
         }
-        if (page >= Math.ceil((warehouseRepository.GetWarehouseCount()  / Double.valueOf(rowsPerPage)))){
+        if (page >= Math.ceil((transactionRepository.GetTransactionCount() / Double.valueOf(rowsPerPage)))){
             ButtonNext.setDisable(true);
         } else {
             ButtonNext.setDisable(false);
@@ -85,30 +88,30 @@ public class WarehouseController implements Initializable {
     }
 
     public void updateTable() throws SQLException {
-        warehouseProperties = FXCollections.observableArrayList();
-        ArrayList<Warehouse> result;
+        transactions = FXCollections.observableArrayList();
+        ArrayList<Transaction> result;
         try {
-            result = warehouseRepository.GetWarehouse(new Pagination(page, rowsPerPage));
+            result = transactionRepository.GetTransaction(new Pagination(page, rowsPerPage));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         result.forEach((t) -> {
-            WarehouseProperty tp = new WarehouseProperty();
-            tp.setWarehouseID(Integer.toString(t.WarehouseID));
-            tp.setNamaWarehouse(t.NamaWarehouse);
-            tp.setAlamat(t.alamat);
-            tp.setNoTelp(Integer.toString(t.NomorTelp));
-            warehouseProperties.add(tp);
+            Transaction_Property tp = new Transaction_Property();
+            tp.setId(Integer.toString(t.transactionID));
+            tp.setNominal(Integer.toString(t.nominal));
+            tp.setCustomerID(Integer.toString(t.customerID));
+            transactions.add(tp);
         });
-        TableWarehouse.setItems(warehouseProperties);
+        TableViewTransaction.setItems(transactions);
         updateButton();
     }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ColumnID.setCellValueFactory(f -> f.getValue().warehouseIDProperty());
-        ColumnNama.setCellValueFactory(f -> f.getValue().namaWarehouseProperty());
-        ColumnAlamat.setCellValueFactory(f -> f.getValue().alamatProperty());
-        ColumnNoTelp.setCellValueFactory(f -> f.getValue().noTelpProperty());
+        ColumnIdTransaction.setCellValueFactory(f -> f.getValue().idTransaction());
+        ColumnNominalTransaction.setCellValueFactory(f -> f.getValue().NominalTransaction());
+        ColumnCustomerID.setCellValueFactory(f-> f.getValue().customerIDProperty());
+
         try {
             updateTable();
         } catch (SQLException e) {

@@ -1,7 +1,10 @@
-package com.example.projectbd2.Supplier;
+package com.example.projectbd2;
 
 import com.example.projectbd2.HelloApplication;
 import com.example.projectbd2.Pagination;
+import com.example.projectbd2.Warehouse.Warehouse;
+import com.example.projectbd2.Warehouse.WarehouseProperty;
+import com.example.projectbd2.Warehouse.WarehouseRepository;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,24 +19,25 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class SupplierController implements Initializable {
+public class WarehouseController implements Initializable {
     @FXML
     private Button ButtonNext, ButtonPrev;
     @FXML
-    private TableColumn<SupplierProperty, String> IDSup, namaSup, NoTelpSup;
+    private TableColumn<WarehouseProperty, String> ColumnID, ColumnNama,ColumnAlamat, ColumnNoTelp;
     @FXML
-    private TableView<SupplierProperty> TableSupplier;
+    private TableView<WarehouseProperty> TableWarehouse;
 
     private int page = 1;
 
     private int rowsPerPage = 12;
 
-    private ObservableList<SupplierProperty> supplier = FXCollections.observableArrayList();
+    private ObservableList<WarehouseProperty> warehouseProperties = FXCollections.observableArrayList();
 
-    private SupplierRepository supplierRepository = new SupplierRepository();
+    private WarehouseRepository warehouseRepository = new WarehouseRepository();
 
-    public SupplierController() throws SQLException {
+    public WarehouseController() throws SQLException {
     }
+
     @FXML
     void onNextButtonClick(ActionEvent event) throws SQLException {
         page++;
@@ -55,19 +59,19 @@ public class SupplierController implements Initializable {
     @FXML
     void onAddButtonClick(){
         HelloApplication app = HelloApplication.getapplicationInstance();
-        app.setPrimaryStage(app.getSupplierInsert());
+        app.setPrimaryStage(app.getWarehouseInsert());
     }
 
     @FXML
     void onEditButtonClick(){
         HelloApplication app = HelloApplication.getApplicationInstance();
-        app.setPrimaryStage(app.getSupplierUpdate());
+        app.setPrimaryStage(app.getWarehouseUpdate());
     }
 
     @FXML
     void onDeleteButtonClick(){
         HelloApplication app = HelloApplication.getApplicationInstance();
-        app.setPrimaryStage(app.getSupplierDelete());
+        app.setPrimaryStage(app.getWarehouseDelete());
     }
 
     private void updateButton() throws SQLException {
@@ -76,7 +80,7 @@ public class SupplierController implements Initializable {
         } else {
             ButtonPrev.setDisable(false);
         }
-        if (page >= Math.ceil((supplierRepository.GetSupplierCount()  / Double.valueOf(rowsPerPage)))){
+        if (page >= Math.ceil((warehouseRepository.GetWarehouseCount()  / Double.valueOf(rowsPerPage)))){
             ButtonNext.setDisable(true);
         } else {
             ButtonNext.setDisable(false);
@@ -84,29 +88,30 @@ public class SupplierController implements Initializable {
     }
 
     public void updateTable() throws SQLException {
-        supplier = FXCollections.observableArrayList();
-        ArrayList<Supplier> result;
+        warehouseProperties = FXCollections.observableArrayList();
+        ArrayList<Warehouse> result;
         try {
-            result = supplierRepository.GetSupplier(new Pagination(page, rowsPerPage));
+            result = warehouseRepository.GetWarehouse(new Pagination(page, rowsPerPage));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         result.forEach((t) -> {
-            SupplierProperty tp = new SupplierProperty();
-            tp.setIdSup(Integer.toString(t.id));
-            tp.setNamaSup(t.namaSup);
-            tp.setNoTelp(Integer.toString(t.NoTelp));
-            supplier.add(tp);
+            WarehouseProperty tp = new WarehouseProperty();
+            tp.setWarehouseID(Integer.toString(t.WarehouseID));
+            tp.setNamaWarehouse(t.NamaWarehouse);
+            tp.setAlamat(t.alamat);
+            tp.setNoTelp(Integer.toString(t.NomorTelp));
+            warehouseProperties.add(tp);
         });
-        TableSupplier.setItems(supplier);
+        TableWarehouse.setItems(warehouseProperties);
         updateButton();
     }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        IDSup.setCellValueFactory(f -> f.getValue().idSupProperty());
-        namaSup.setCellValueFactory(f -> f.getValue().namaSupProperty());
-        NoTelpSup.setCellValueFactory(f-> f.getValue().noTelpProperty());
+        ColumnID.setCellValueFactory(f -> f.getValue().warehouseIDProperty());
+        ColumnNama.setCellValueFactory(f -> f.getValue().namaWarehouseProperty());
+        ColumnAlamat.setCellValueFactory(f -> f.getValue().alamatProperty());
+        ColumnNoTelp.setCellValueFactory(f -> f.getValue().noTelpProperty());
         try {
             updateTable();
         } catch (SQLException e) {

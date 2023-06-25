@@ -1,6 +1,7 @@
-package com.example.projectbd2.Transaction;
+package com.example.projectbd2;
 
 import com.example.projectbd2.HelloApplication;
+import com.example.projectbd2.Transaction.Transaction_Repository;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -8,27 +9,21 @@ import javafx.scene.control.TextField;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 
-public class Transaction_Update {
+public class Transaction_Insert {
     @FXML
-    TextField id, tanggal, nominal, penggunaId;
+    TextField tanggal, nominal, penggunaId;
     boolean isValid;
     @FXML
     Label warningText;
     Transaction_Repository transactionRepository;
 
     @FXML
-    public void onEditButtonClick() throws SQLException {
+    public void onAddButtonClick() throws SQLException {
         transactionRepository = new Transaction_Repository();
-        if (!isNumeric(id.getText())){
-            warningText.setText("Id harus angka");
-        }
-        else if (!isNumeric(penggunaId.getText())){
+        if (!isNumeric(penggunaId.getText())){
             warningText.setText("Pengguna ID harus angka");
         }
-        else if (!transactionRepository.cekId(Integer.parseInt(id.getText()))){
-            warningText.setText("Id invalid");
-        }
-        else if (!(tanggal.getText().length() >= 10)){
+        else if (!(tanggal.getText().length() == 10)){
             warningText.setText("Tanggal Invalid");
         }
         else if (!(tanggal.getText().charAt(4) == '-')){
@@ -57,8 +52,8 @@ public class Transaction_Update {
             else {
                 tanggalAkhir += temp[0] + "-" + temp[1] + "-" + temp[2];
                 isValid = true;
-                try{
-                    transactionRepository.updateData(Integer.parseInt(id.getText()),  Integer.parseInt(nominal.getText()));
+                try {
+                    transactionRepository.insertData(Integer.parseInt(nominal.getText()));
                 } catch (SQLIntegrityConstraintViolationException e){
                     warningText.setText("Pengguna ID Tidak ditemukan");
                     isValid = false;

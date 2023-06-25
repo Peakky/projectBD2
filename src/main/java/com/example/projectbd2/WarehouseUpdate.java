@@ -1,7 +1,8 @@
-package com.example.projectbd2.Warehouse;
+package com.example.projectbd2;
 
 import com.example.projectbd2.HelloApplication;
 import com.example.projectbd2.Supplier.SupplierRepository;
+import com.example.projectbd2.Warehouse.WarehouseRepository;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;

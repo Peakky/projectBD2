@@ -1,4 +1,4 @@
-package com.example.projectbd2.Warehouse;
+package com.example.projectbd2;
 
 import com.example.projectbd2.HelloApplication;
 import com.example.projectbd2.Supplier.SupplierRepository;
@@ -9,25 +9,25 @@ import javafx.scene.control.TextField;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 
-public class WarehouseInsert {
+public class SupplierInsert {
     @FXML
-    TextField NamaWarehouse,Alamat, NoTelepon;
+    TextField  NamaSup, NoTelepon;
     Label warningText;
-    WarehouseRepository warehouseRepository;
+    SupplierRepository supplierRepository;
     @FXML
     public void onAddButtonClick() throws SQLException {
-        warehouseRepository = new WarehouseRepository();
+        supplierRepository = new SupplierRepository();
         if (!isNumeric(NoTelepon.getText())){
             warningText.setText("No Telepon Harus Angka!");
         }else {
             try {
-                warehouseRepository.insertData(NamaWarehouse.getText(), Alamat.getText(), Integer.parseInt(NoTelepon.getText()));
+                supplierRepository.insertData(NamaSup.getText(), Integer.parseInt(NoTelepon.getText()));
             } catch (SQLIntegrityConstraintViolationException e) {
                 warningText.setText("Gagal Input");
             }
             HelloApplication app = HelloApplication.getapplicationInstance();
-            app.getWarehouseController().updateTable();
-            app.setPrimaryStage(app.getWarehouse());
+            app.getSupplierController().updateTable();
+            app.setPrimaryStage(app.getSupplier());
         }
     }
 

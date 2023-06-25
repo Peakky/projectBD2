@@ -1,28 +1,31 @@
-package com.example.projectbd2.Supplier;
+package com.example.projectbd2;
 
 import com.example.projectbd2.HelloApplication;
+import com.example.projectbd2.Transaction.Transaction_Repository;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.sql.SQLException;
 
-public class SupplierDelete {
+public class Transaction_Delete {
     @FXML
     TextField id;
     boolean isValid;
+    @FXML
     Label warningText;
-    SupplierRepository supplierRepository;
+    Transaction_Repository transactionRepository;
+
     @FXML
     public void onDeleteButtonClick() throws SQLException {
-        supplierRepository = new SupplierRepository();
+        transactionRepository = new Transaction_Repository();
         String inputId = id.getText().replace(" ","");
         isValid = true;
         if (inputId.contains(",")){
             String[] temp = inputId.split(",");
             for (String x : temp) {
-                if (supplierRepository.cekId(Integer.parseInt(x)) && isValid) {
-                    supplierRepository.deleteData(Integer.parseInt(x));
+                if (transactionRepository.cekId(Integer.parseInt(x)) && isValid) {
+                    transactionRepository.deleteData(Integer.parseInt(x));
                 }
                 else {
                     warningText.setText("Input Invalid");
@@ -31,15 +34,15 @@ public class SupplierDelete {
             }
             if (isValid){
                 HelloApplication app = HelloApplication.getapplicationInstance();
-                app.getSupplierController().updateTable();
-                app.setPrimaryStage(app.getSupplier());
+                app.getTransactionController().updateTable();
+                app.setPrimaryStage(app.getTransaction());
             }
         }
         else if (inputId.contains("-")){
             String[] temp = inputId.split("-");
             for (int i = Integer.parseInt(temp[0]) ; i <= Integer.parseInt(temp[1]) ; i++){
-                if (supplierRepository.cekId(i) && isValid) {
-                    supplierRepository.deleteData(i);
+                if (transactionRepository.cekId(i) && isValid) {
+                    transactionRepository.deleteData(i);
                 }
                 else {
                     warningText.setText("Input Invalid");
@@ -48,16 +51,16 @@ public class SupplierDelete {
             }
             if (isValid){
                 HelloApplication app = HelloApplication.getapplicationInstance();
-                app.getProductController().updateTable();
-                app.setPrimaryStage(app.getProduct());
+                app.getTransactionController().updateTable();
+                app.setPrimaryStage(app.getTransaction());
             }
         }
         else {
-            if (supplierRepository.cekId(Integer.parseInt(id.getText()))){
-                supplierRepository.deleteData(Integer.parseInt(id.getText()));
+            if (transactionRepository.cekId(Integer.parseInt(id.getText()))){
+                transactionRepository.deleteData(Integer.parseInt(id.getText()));
                 HelloApplication app = HelloApplication.getapplicationInstance();
-                app.getSupplierController().updateTable();
-                app.setPrimaryStage(app.getSupplier());;
+                app.getTransactionController().updateTable();
+                app.setPrimaryStage(app.getTransactionDelete());
             }
             else {
                 warningText.setText("Input Invalid");

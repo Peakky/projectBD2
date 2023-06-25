@@ -20,18 +20,8 @@ import com.example.projectbd2.Product.ProductController;
 import com.example.projectbd2.Product.ProductDelete;
 import com.example.projectbd2.Product.ProductInsert;
 import com.example.projectbd2.Product.ProductUpdate;
-import com.example.projectbd2.Supplier.SupplierController;
-import com.example.projectbd2.Supplier.SupplierDelete;
-import com.example.projectbd2.Supplier.SupplierInsert;
-import com.example.projectbd2.Supplier.SupplierUpdate;
-import com.example.projectbd2.Transaction.Transaction_Controller;
-import com.example.projectbd2.Transaction.Transaction_Delete;
-import com.example.projectbd2.Transaction.Transaction_Insert;
-import com.example.projectbd2.Transaction.Transaction_Update;
-import com.example.projectbd2.Warehouse.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 

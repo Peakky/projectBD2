@@ -10,4 +10,36 @@ public class Warehouse {
         NamaWarehouse = namaWarehouse;
         this.alamat = alamat;
     }
+
+    public int getWarehouseID() {
+        return WarehouseID;
+    }
+
+    public void setWarehouseID(int warehouseID) {
+        WarehouseID = warehouseID;
+    }
+
+    public int getNomorTelp() {
+        return NomorTelp;
+    }
+
+    public void setNomorTelp(int nomorTelp) {
+        NomorTelp = nomorTelp;
+    }
+
+    public String getNamaWarehouse() {
+        return NamaWarehouse;
+    }
+
+    public void setNamaWarehouse(String namaWarehouse) {
+        NamaWarehouse = namaWarehouse;
+    }
+
+    public String getAlamat() {
+        return alamat;
+    }
+
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
+    }
 }

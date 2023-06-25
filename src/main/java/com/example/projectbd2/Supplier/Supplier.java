@@ -11,4 +11,27 @@ public class Supplier {
         NoTelp = noTelp;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNamaSup() {
+        return namaSup;
+    }
+
+    public void setNamaSup(String namaSup) {
+        this.namaSup = namaSup;
+    }
+
+    public int getNoTelp() {
+        return NoTelp;
+    }
+
+    public void setNoTelp(int noTelp) {
+        NoTelp = noTelp;
+    }
 }
