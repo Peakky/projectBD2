@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 public class Delivery_Update {
     @FXML
-    TextField id, Tanggal;
+    TextField id, Tanggal, CourierID;
     @FXML
     Label warningText;
     Delivery_Repository deliveryRepository;
@@ -24,7 +24,7 @@ public class Delivery_Update {
             warningText.setText("Id invalid");
         }
         else {
-            deliveryRepository.updateData(Integer.parseInt(id.getText()), Tanggal.getText());
+            deliveryRepository.updateData(Integer.parseInt(id.getText()), Tanggal.getText(), Integer.parseInt(CourierID.getText()));
             HelloApplication app = HelloApplication.getapplicationInstance();
             app.getDeliveryController().updateTable();
             app.setPrimaryStage(app.getDelivery());

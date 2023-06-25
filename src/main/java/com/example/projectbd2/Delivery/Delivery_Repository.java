@@ -43,11 +43,12 @@ public class Delivery_Repository {
         return deliveries;
     }
 
-    public void insertData(String Tanggal) {
-        String Query = "INSERT INTO delivery (Tanggal) VALUES (?)";
+    public void insertData(String Tanggal, int CourierID) {
+        String Query = "INSERT INTO delivery (Tanggal, CourierID) VALUES (?,?)";
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(Query);
             preparedStatement.setString(1, Tanggal);
+            preparedStatement.setInt(2, CourierID);
 
             System.out.println(preparedStatement);
             preparedStatement.execute();
@@ -57,10 +58,13 @@ public class Delivery_Repository {
         }
     }
 
-    public void updateData(int id, String Tanggal) {
+    public void updateData(int id, String Tanggal, int CourierID) {
         String Query = "UPDATE delivery SET ";
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(Query + "Tanggal = '" + Tanggal + "' where id = " + id);
+            System.out.println(preparedStatement);
+            preparedStatement.execute();
+            preparedStatement = conn.prepareStatement(Query + "CourierID = '" + CourierID  + "' where id = " + id);
             System.out.println(preparedStatement);
             preparedStatement.execute();
 

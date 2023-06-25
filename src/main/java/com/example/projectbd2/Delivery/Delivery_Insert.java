@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 public class Delivery_Insert {
     @FXML
-    TextField Tanggal_Delivery;
+    TextField Tanggal_Delivery, CourierID;
     @FXML
     Label warningText;
     Delivery_Repository deliveryRepository;
@@ -18,7 +18,7 @@ public class Delivery_Insert {
     public void onAddButtonClick() throws SQLException {
         deliveryRepository = new Delivery_Repository();
 
-            deliveryRepository.insertData(Tanggal_Delivery.getText());
+            deliveryRepository.insertData(Tanggal_Delivery.getText(), Integer.parseInt(CourierID.getText()));
             HelloApplication app = HelloApplication.getapplicationInstance();
             app.getDeliveryController().updateTable();
             app.setPrimaryStage(app.getDelivery());
