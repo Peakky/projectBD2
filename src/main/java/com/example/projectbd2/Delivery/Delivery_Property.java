@@ -6,12 +6,25 @@ import javafx.beans.property.StringProperty;
 public class Delivery_Property {
     private final StringProperty id;
     private final StringProperty Tanggal_Delivery;
+    private final StringProperty CourierID;
 
 
     public Delivery_Property() {
         id = new SimpleStringProperty(this, "id");
         Tanggal_Delivery = new SimpleStringProperty(this, "Tanggal");
+        CourierID= new SimpleStringProperty(this,"Courier ID");
+    }
 
+    public String getCourierID() {
+        return CourierID.get();
+    }
+
+    public StringProperty courierIDProperty() {
+        return CourierID;
+    }
+
+    public void setCourierID(String courierID) {
+        this.CourierID.set(courierID);
     }
 
     public StringProperty IdDelivery(){return id;}

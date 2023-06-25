@@ -13,7 +13,7 @@ public class connection {
 
     private static Connection Connect() throws SQLException {
         String dbName = "proyekbd";
-        String dbUrl = "jdbc:mysql://localhost:127.0.0.1/delivery" ;
+        String dbUrl = "jdbc:mysql://localhost:3306/Delivery" ;
         String dbUser = "root";
         String dbPassword = "";
         Connection dbLink = DriverManager.getConnection(dbUrl, dbUser, dbPassword);

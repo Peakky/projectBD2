@@ -20,7 +20,7 @@ public class Delivery_Controller implements Initializable {
     @FXML
     private Button ButtonNext, ButtonPrev;
     @FXML
-    private TableColumn<Delivery_Property, String> ColumnIdDelivery, ColumnTanggalDelivery;
+    private TableColumn<Delivery_Property, String> ColumnIdDelivery, ColumnTanggalDelivery,ColumnCourierID;
     @FXML
     private TableView<Delivery_Property> TableViewDelivery;
 
@@ -96,7 +96,7 @@ public class Delivery_Controller implements Initializable {
             Delivery_Property ft = new Delivery_Property();
             ft.setId(Integer.toString(f.deliveryID));
             ft.setTanggal_Delivery(f.Tanggal_Delivery);
-
+            ft.setCourierID(String.valueOf(f.courierID));
             deliveries.add(ft);
         });
         TableViewDelivery.setItems(deliveries);
@@ -107,7 +107,7 @@ public class Delivery_Controller implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ColumnIdDelivery.setCellValueFactory(f -> f.getValue().IdDelivery());
         ColumnTanggalDelivery.setCellValueFactory(f -> f.getValue().TanggalDelivery());
-
+        ColumnCourierID.setCellValueFactory(f-> f.getValue().courierIDProperty());
         try {
             updateTable();
         } catch (SQLException e) {

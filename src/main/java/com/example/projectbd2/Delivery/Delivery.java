@@ -1,11 +1,12 @@
 package com.example.projectbd2.Delivery;
 
 public class Delivery {
-    int deliveryID;
+    int deliveryID,courierID;
     String Tanggal_Delivery;
 
-    public Delivery(int id, String Tanggal) {
+    public Delivery(int id, String Tanggal,int courierID) {
         this.deliveryID = id;
         this.Tanggal_Delivery= Tanggal;
+        this.courierID=courierID;
     }
 }

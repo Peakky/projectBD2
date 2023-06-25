@@ -35,7 +35,8 @@ public class Delivery_Repository {
             deliveries.add(
                     new Delivery(
                             rs.getInt("id"),
-                            rs.getString("Tanggal")
+                            rs.getString("Tanggal"),
+                            rs.getInt("Courier ID")
                     )
             );
         }

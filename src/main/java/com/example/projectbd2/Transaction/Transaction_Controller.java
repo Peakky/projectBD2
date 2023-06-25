@@ -20,7 +20,7 @@ public class Transaction_Controller implements Initializable {
     @FXML
     private Button ButtonNext, ButtonPrev;
     @FXML
-    private TableColumn<Transaction_Property, String> ColumnIdTransaction, ColumnNominalTransaction;
+    private TableColumn<Transaction_Property, String> ColumnIdTransaction, ColumnNominalTransaction, ColumnCustomerID;
     @FXML
     private TableView<Transaction_Property> TableViewTransaction;
 
@@ -96,6 +96,7 @@ public class Transaction_Controller implements Initializable {
             Transaction_Property tp = new Transaction_Property();
             tp.setId(Integer.toString(t.transactionID));
             tp.setNominal(Integer.toString(t.nominal));
+            tp.setCustomerID(Integer.toString(t.customerID));
             transactions.add(tp);
         });
         TableViewTransaction.setItems(transactions);
@@ -106,6 +107,7 @@ public class Transaction_Controller implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ColumnIdTransaction.setCellValueFactory(f -> f.getValue().idTransaction());
         ColumnNominalTransaction.setCellValueFactory(f -> f.getValue().NominalTransaction());
+        ColumnCustomerID.setCellValueFactory(f-> f.getValue().customerIDProperty());
 
         try {
             updateTable();

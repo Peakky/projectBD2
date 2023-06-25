@@ -35,7 +35,8 @@ public class Transaction_Repository {
             transactions.add(
                     new Transaction(
                             rs.getInt("id"),
-                            rs.getInt("nominal")
+                            rs.getInt("nominal"),
+                            rs.getInt("customerId")
                     )
             );
         }
