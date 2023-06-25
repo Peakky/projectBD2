@@ -15,7 +15,7 @@ public class WarehouseRepository {
 
     public int GetWarehouseCount() throws SQLException {
         Statement stmt = conn.createStatement();
-        String sql = "SELECT COUNT(id) FROM Warehouse";
+        String sql = "SELECT COUNT(Warehouse_id) FROM Warehouse";
         System.out.println(sql);
         ResultSet rs = stmt.executeQuery(sql);
         if(rs.next()){
@@ -34,10 +34,10 @@ public class WarehouseRepository {
         while (rs.next()){
             warehouses.add(
                     new Warehouse(
-                            rs.getInt("Warehouse ID"),
+                            rs.getInt("Warehouse_id"),
                             rs.getString("Nama Warehouse"),
-                            rs.getString("Alamat"),
-                            rs.getInt("Nomor Telepon")
+                            rs.getString("Alamat_warehouse"),
+                            rs.getInt("No_HP")
                     )
             );
         }
@@ -45,7 +45,7 @@ public class WarehouseRepository {
     }
 
     public void insertData( String Nama,String alamat, int NomorTelp) throws SQLException {
-        String Query = "INSERT INTO Warehouse (Nama_Warehouse,alamat, Nomor_Telepon) VALUES (?,?,?)";
+        String Query = "INSERT INTO Warehouse (Nama Warehouse,Alamat_warehouse, No_HP) VALUES (?,?,?)";
         PreparedStatement preparedStatement = conn.prepareStatement(Query);
         preparedStatement.setString(1, Nama);
         preparedStatement.setString(2, alamat);
@@ -58,13 +58,13 @@ public class WarehouseRepository {
         String Query = "UPDATE Supplier SET ";
         try {
 
-            PreparedStatement preparedStatement = conn.prepareStatement(Query + "Nama_Warehouse = '" + Nama + "' where id = " + id);
+            PreparedStatement preparedStatement = conn.prepareStatement(Query + "Nama Warehouse = '" + Nama + "' where Warehouse_id = " + id);
             System.out.println(preparedStatement);
             preparedStatement.execute();
-            preparedStatement = conn.prepareStatement(Query + "alamat = '" + Alamat + "' where id = " + id);
+            preparedStatement = conn.prepareStatement(Query + "Alamat_warehouse = '" + Alamat + "' where Warehouse_id = " + id);
             System.out.println(preparedStatement);
             preparedStatement.execute();
-            preparedStatement = conn.prepareStatement(Query + "Nomor_Telepon = '" + NomorTelepon + "' where id = " + id);
+            preparedStatement = conn.prepareStatement(Query + "No_HP = '" + NomorTelepon + "' where Warehouse_id = " + id);
             System.out.println(preparedStatement);
             preparedStatement.execute();
 
@@ -75,7 +75,7 @@ public class WarehouseRepository {
         }
     }
     public void deleteData(int id) throws SQLException {
-        String Query = "DELETE FROM Warehouse WHERE id = " + id;
+        String Query = "DELETE FROM Warehouse WHERE Warehouse_id = " + id;
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(Query);
             System.out.println(preparedStatement);
@@ -87,7 +87,7 @@ public class WarehouseRepository {
     }
 
     public boolean cekId(int id) throws SQLException {
-        String Query = "select * FROM Warehouse WHERE id = " + id;
+        String Query = "select * FROM Warehouse WHERE Warehouse_id = " + id;
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(Query);
             System.out.println(preparedStatement);

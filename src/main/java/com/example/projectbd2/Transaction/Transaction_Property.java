@@ -10,9 +10,9 @@ public class Transaction_Property {
     private final StringProperty CustomerID;
 
     public Transaction_Property(){
-        id = new SimpleStringProperty(this, "id");
-        nominal = new SimpleStringProperty(this, "nominal");
-        CustomerID = new SimpleStringProperty(this, "Customer ID");
+        id = new SimpleStringProperty(this, "Transaction_id");
+        nominal = new SimpleStringProperty(this, "Price");
+        CustomerID = new SimpleStringProperty(this, "Customer_id");
     }
 
     public String getCustomerID() {

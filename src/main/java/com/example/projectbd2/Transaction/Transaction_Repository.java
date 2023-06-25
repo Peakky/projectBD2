@@ -15,7 +15,7 @@ public class Transaction_Repository {
 
     public int GetTransactionCount() throws SQLException {
         Statement stmt = conn.createStatement();
-        String sql = "SELECT COUNT(id) FROM transaction";
+        String sql = "SELECT COUNT(Transaction_id) FROM transaction";
         System.out.println(sql);
         ResultSet rs = stmt.executeQuery(sql);
         if(rs.next()){
@@ -34,9 +34,9 @@ public class Transaction_Repository {
         while (rs.next()){
             transactions.add(
                     new Transaction(
-                            rs.getInt("id"),
-                            rs.getInt("nominal"),
-                            rs.getInt("customerId")
+                            rs.getInt("Transaction_id"),
+                            rs.getInt("Price"),
+                            rs.getInt("Customer_id")
                     )
             );
         }
@@ -44,7 +44,7 @@ public class Transaction_Repository {
     }
 
     public void insertData(int nominal) throws SQLException {
-        String Query = "INSERT INTO transaction (nominal) VALUES (?)";
+        String Query = "INSERT INTO transaction (Price) VALUES (?)";
         PreparedStatement preparedStatement = conn.prepareStatement(Query);
 
         preparedStatement.setString(1, Integer.toString(nominal));
@@ -55,13 +55,13 @@ public class Transaction_Repository {
 
     public void updateData(int id,int nominal) throws SQLException {
         String Query = "UPDATE transaction SET ";
-        PreparedStatement preparedStatement = conn.prepareStatement(Query + "nominal = '" + nominal + "' where id = " + id);
+        PreparedStatement preparedStatement = conn.prepareStatement(Query + "Price = '" + nominal + "' where Transaction_id = " + id);
         System.out.println(preparedStatement);
         preparedStatement.execute();
 
     }
     public void deleteData(int id) throws SQLException {
-        String Query = "DELETE FROM transaction WHERE id = " + id;
+        String Query = "DELETE FROM transaction WHERE Transaction_id = " + id;
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(Query);
             System.out.println(preparedStatement);
@@ -73,7 +73,7 @@ public class Transaction_Repository {
     }
 
     public boolean cekId(int id) throws SQLException {
-        String Query = "select * FROM transaction WHERE id = " + id;
+        String Query = "select * FROM transaction WHERE Transaction_id = " + id;
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(Query);
             System.out.println(preparedStatement);

@@ -6,10 +6,10 @@ public class WarehouseProperty {
     SimpleStringProperty WarehouseID,NamaWarehouse, alamat, NoTelp;
 
     public WarehouseProperty() {
-        WarehouseID = new SimpleStringProperty(this, "Warehouse ID");
+        WarehouseID = new SimpleStringProperty(this, "Warehouse_id");
         NamaWarehouse = new SimpleStringProperty(this, "Nama Warehouse");
-        alamat = new SimpleStringProperty(this, "Alamat");
-        NoTelp = new SimpleStringProperty(this, "Nomor Telepon");
+        alamat = new SimpleStringProperty(this, "Alamat_warehouse");
+        NoTelp = new SimpleStringProperty(this, "No_HP");
     }
 
     public String getWarehouseID() {
