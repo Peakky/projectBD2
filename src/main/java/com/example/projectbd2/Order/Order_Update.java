@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 public class Order_Update {
     @FXML
-    TextField Id_Order, Tanggal_Order;
+    TextField Id_Order, Tanggal_Order,TransactionID;
     @FXML
     Label warningText;
     Order_Repository orderRepository;
@@ -23,9 +23,11 @@ public class Order_Update {
         }
         else if (!orderRepository.cekId(Integer.parseInt(Id_Order.getText()))){
             warningText.setText("Id invalid");
+        }else if (!isNumeric(TransactionID.getText())){
+            warningText.setText("TransactionID harus angka!");
         }
         else {
-            orderRepository.updateData(Integer.parseInt(Id_Order.getText()), Tanggal_Order.getText());
+            orderRepository.updateData(Integer.parseInt(Id_Order.getText()), Tanggal_Order.getText(), Integer.parseInt(TransactionID.getText()));
             HelloApplication app = HelloApplication.getapplicationInstance();
             app.getOrderController().updateTable();
             app.setPrimaryStage(app.getOrder());

@@ -37,18 +37,19 @@ public class Order_Repository {
                     new Order(
                             rs.getInt("id"),
                             rs.getString("Tanggal"),
-                            rs.getInt("transaction id")
+                            rs.getInt("transaction_id")
                     )
             );
         }
         return orders;
     }
 
-    public void insertData(String Tanggal) {
-        String Query = "INSERT INTO order (Tanggal) VALUES (?)";
+    public void insertData(String Tanggal, int transactionID) {
+        String Query = "INSERT INTO order (Tanggal,Transaction_ID) VALUES (?,?)";
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(Query);
             preparedStatement.setString(1, Tanggal);
+            preparedStatement.setInt(2,transactionID);
 
             System.out.println(preparedStatement);
             preparedStatement.execute();
@@ -58,10 +59,14 @@ public class Order_Repository {
         }
     }
 
-    public void updateData(int id, String Tanggal) {
+    public void updateData(int id, String Tanggal, int TransactionID) {
         String Query = "UPDATE order SET ";
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(Query + "Tanggal = '" + Tanggal + "' where id = " + id);
+            System.out.println(preparedStatement);
+            preparedStatement.execute();
+
+            preparedStatement = conn.prepareStatement(Query + "transaction_ID = '" + TransactionID + "' where id = " + id);
             System.out.println(preparedStatement);
             preparedStatement.execute();
 

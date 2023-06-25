@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 public class Order_Insert {
     @FXML
-    TextField Tanggal_Order;
+    TextField Tanggal_Order, TransactionID;
     @FXML
     Label warningText;
     Order_Repository orderRepository;
@@ -19,7 +19,7 @@ public class Order_Insert {
     public void onAddButtonClick() throws SQLException {
         orderRepository = new Order_Repository();
 
-        orderRepository.insertData(Tanggal_Order.getText());
+        orderRepository.insertData(Tanggal_Order.getText(), Integer.parseInt(TransactionID.getText()));
         HelloApplication app = HelloApplication.getapplicationInstance();
         app.getOrderController().updateTable();
         app.setPrimaryStage(app.getOrder());
