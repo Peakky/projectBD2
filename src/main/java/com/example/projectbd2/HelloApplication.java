@@ -56,12 +56,14 @@ public class HelloApplication extends Application {
     private Customer_Update customerUpdateController;
     private Customer_Delete customerDeleteController;
     private ProductController productController;
-    private com.example.projectbd2.Product.ProductDelete productDeleteController;
-    private com.example.projectbd2.Product.ProductInsert productInsertController;
-    private com.example.projectbd2.Product.ProductUpdate productUPdateController;
+
+    private ProductDelete productDeleteController;
+    private ProductInsert productInsertController;
+    private ProductUpdate productUPdateController;
     private Delivery_Controller deliveryController;
     private Delivery_Insert deliveryInsertController;
     private Delivery_Update deliveryUpdateController;
+
     private Delivery_Delete deliveryDeleteController;
     private Transaction_Controller transactionController;
     private Transaction_Insert transactionInsertController;
@@ -72,13 +74,13 @@ public class HelloApplication extends Application {
     private Order_Update orderUpdateController;
     private Order_Delete orderDeleteController;
     private WarehouseController warehouseController;
-    private com.example.projectbd2.Warehouse.WarehouseInsert warehouseInsertController;
-    private com.example.projectbd2.Warehouse.WarehouseDelete warehouseDeleteController;
-    private com.example.projectbd2.Warehouse.WarehouseUpdate warehouseUpdateController;
+    private WarehouseInsert warehouseInsertController;
+    private WarehouseDelete warehouseDeleteController;
+    private WarehouseUpdate warehouseUpdateController;
     private SupplierController supplierController;
-    private com.example.projectbd2.Supplier.SupplierInsert supplierInsertController;
-    private com.example.projectbd2.Supplier.SupplierUpdate supplierUpdateController;
-    private com.example.projectbd2.Supplier.SupplierDelete supplierDeleteController;
+    private SupplierInsert supplierInsertController;
+    private SupplierUpdate supplierUpdateController;
+    private SupplierDelete supplierDeleteController;
 
     public void setPrimaryStage(Scene scene){
         this.primaryStage.setScene(scene);
@@ -361,6 +363,42 @@ public class HelloApplication extends Application {
 
     public WarehouseController getWarehouseController() {
         return warehouseController;
+    }
+
+    public ProductDelete getProductDeleteController() {
+        return productDeleteController;
+    }
+
+    public ProductInsert getProductInsertController() {
+        return productInsertController;
+    }
+
+    public ProductUpdate getProductUPdateController() {
+        return productUPdateController;
+    }
+
+    public WarehouseInsert getWarehouseInsertController() {
+        return warehouseInsertController;
+    }
+
+    public WarehouseDelete getWarehouseDeleteController() {
+        return warehouseDeleteController;
+    }
+
+    public WarehouseUpdate getWarehouseUpdateController() {
+        return warehouseUpdateController;
+    }
+
+    public SupplierUpdate getSupplierUpdateController() {
+        return supplierUpdateController;
+    }
+
+    public SupplierDelete getSupplierDeleteController() {
+        return supplierDeleteController;
+    }
+
+    public SupplierInsert getSupplierInsertController() {
+        return supplierInsertController;
     }
 
     @Override
