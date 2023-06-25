@@ -96,9 +96,9 @@ public class SupplierController implements Initializable {
         }
         result.forEach((t) -> {
             SupplierProperty tp = new SupplierProperty();
-            tp.setIdSup(Integer.toString(t.id));
-            tp.setNamaSup(t.namaSup);
-            tp.setNoTelp(Integer.toString(t.NoTelp));
+            tp.setIdSup(Integer.toString(t.getId()));
+            tp.setNamaSup(t.getNamaSup());
+            tp.setNoTelp(Integer.toString(t.getNoTelp()));
             supplier.add(tp);
         });
         TableSupplier.setItems(supplier);

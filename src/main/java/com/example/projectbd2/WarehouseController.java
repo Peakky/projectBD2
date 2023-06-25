@@ -97,10 +97,10 @@ public class WarehouseController implements Initializable {
         }
         result.forEach((t) -> {
             WarehouseProperty tp = new WarehouseProperty();
-            tp.setWarehouseID(Integer.toString(t.WarehouseID));
-            tp.setNamaWarehouse(t.NamaWarehouse);
-            tp.setAlamat(t.alamat);
-            tp.setNoTelp(Integer.toString(t.NomorTelp));
+            tp.setWarehouseID(Integer.toString(t.getWarehouseID()));
+            tp.setNamaWarehouse(t.getNamaWarehouse());
+            tp.setAlamat(t.getAlamat());
+            tp.setNoTelp(Integer.toString(t.getNomorTelp()));
             warehouseProperties.add(tp);
         });
         TableWarehouse.setItems(warehouseProperties);

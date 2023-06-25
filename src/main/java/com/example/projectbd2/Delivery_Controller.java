@@ -1,10 +1,10 @@
 package com.example.projectbd2;
 
+import com.example.projectbd2.Delivery.Delivery;
+import com.example.projectbd2.Delivery.Delivery_Property;
+import com.example.projectbd2.Delivery.Delivery_Repository;
 import com.example.projectbd2.HelloApplication;
 import com.example.projectbd2.Pagination;
-import com.example.projectbd2.Transaction.Transaction;
-import com.example.projectbd2.Transaction.Transaction_Property;
-import com.example.projectbd2.Transaction.Transaction_Repository;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -19,23 +19,23 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class Transaction_Controller implements Initializable {
+public class Delivery_Controller implements Initializable {
     @FXML
     private Button ButtonNext, ButtonPrev;
     @FXML
-    private TableColumn<Transaction_Property, String> ColumnIdTransaction, ColumnNominalTransaction, ColumnCustomerID;
+    private TableColumn<Delivery_Property, String> ColumnIdDelivery, ColumnTanggalDelivery,ColumnCourierID;
     @FXML
-    private TableView<Transaction_Property> TableViewTransaction;
+    private TableView<Delivery_Property> TableViewDelivery;
 
     private int page = 1;
 
     private int rowsPerPage = 12;
 
-    private ObservableList<Transaction_Property> transactions = FXCollections.observableArrayList();
+    private ObservableList<Delivery_Property> deliveries = FXCollections.observableArrayList();
 
-    private Transaction_Repository transactionRepository = new Transaction_Repository();
+    private Delivery_Repository deliveryRepository = new Delivery_Repository();
 
-    public Transaction_Controller() throws SQLException {
+    public Delivery_Controller() throws SQLException {
     }
 
     @FXML
@@ -59,19 +59,19 @@ public class Transaction_Controller implements Initializable {
     @FXML
     void onAddButtonClick(){
         HelloApplication app = HelloApplication.getapplicationInstance();
-        app.setPrimaryStage(app.getTransactionInsert());
+        app.setPrimaryStage(app.getDeliveryInsert());
     }
 
     @FXML
     void onEditButtonClick(){
         HelloApplication app = HelloApplication.getApplicationInstance();
-        app.setPrimaryStage(app.getTransactionUpdate());
+        app.setPrimaryStage(app.getDeliveryUpdate());
     }
 
     @FXML
     void onDeleteButtonClick(){
         HelloApplication app = HelloApplication.getApplicationInstance();
-        app.setPrimaryStage(app.getTransactionDelete());
+        app.setPrimaryStage(app.getDeliveryDelete());
     }
 
     private void updateButton() throws SQLException {
@@ -80,7 +80,7 @@ public class Transaction_Controller implements Initializable {
         } else {
             ButtonPrev.setDisable(false);
         }
-        if (page >= Math.ceil((transactionRepository.GetTransactionCount() / Double.valueOf(rowsPerPage)))){
+        if (page >= Math.ceil((deliveryRepository.GetDeliveryCount() / Double.valueOf(rowsPerPage)))){
             ButtonNext.setDisable(true);
         } else {
             ButtonNext.setDisable(false);
@@ -88,30 +88,29 @@ public class Transaction_Controller implements Initializable {
     }
 
     public void updateTable() throws SQLException {
-        transactions = FXCollections.observableArrayList();
-        ArrayList<Transaction> result;
+        deliveries = FXCollections.observableArrayList();
+        ArrayList<Delivery> result;
         try {
-            result = transactionRepository.GetTransaction(new Pagination(page, rowsPerPage));
+            result = deliveryRepository.GetDelivery(new Pagination(page, rowsPerPage));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        result.forEach((t) -> {
-            Transaction_Property tp = new Transaction_Property();
-            tp.setId(Integer.toString(t.getTransactionID()));
-            tp.setNominal(Integer.toString(t.getNominal()));
-            tp.setCustomerID(Integer.toString(t.getCustomerID()));
-            transactions.add(tp);
+        result.forEach((f) -> {
+            Delivery_Property ft = new Delivery_Property();
+            ft.setId(Integer.toString(f.getDeliveryID()));
+            ft.setTanggal_Delivery(f.getTanggal_Delivery());
+            ft.setCourierID(String.valueOf(f.getCourierID()));
+            deliveries.add(ft);
         });
-        TableViewTransaction.setItems(transactions);
+        TableViewDelivery.setItems(deliveries);
         updateButton();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ColumnIdTransaction.setCellValueFactory(f -> f.getValue().idTransaction());
-        ColumnNominalTransaction.setCellValueFactory(f -> f.getValue().NominalTransaction());
-        ColumnCustomerID.setCellValueFactory(f-> f.getValue().customerIDProperty());
-
+        ColumnIdDelivery.setCellValueFactory(f -> f.getValue().IdDelivery());
+        ColumnTanggalDelivery.setCellValueFactory(f -> f.getValue().TanggalDelivery());
+        ColumnCourierID.setCellValueFactory(f-> f.getValue().courierIDProperty());
         try {
             updateTable();
         } catch (SQLException e) {

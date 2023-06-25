@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectbd2.Courier_Update">
+   <children>
+      <TextField fx:id="nama" layoutX="178.0" layoutY="117.0" prefHeight="26.0" prefWidth="277.0" />
+      <TextField fx:id="no_hp" layoutX="178.0" layoutY="164.0" prefHeight="26.0" prefWidth="277.0" />
+      <Text layoutX="73.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nama Courier" wrappingWidth="115.7366943359375" />
+      <Text layoutX="73.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nomore Telepon" wrappingWidth="115.7366943359375" />
+      <Button layoutX="288.0" layoutY="216.0" mnemonicParsing="false" onAction="#onEditButtonClick" text="Update" />
+      <Text layoutX="73.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID Courier" wrappingWidth="115.7366943359375" />
+      <TextField fx:id="id" layoutX="178.0" layoutY="73.0" prefHeight="26.0" prefWidth="277.0" />
+   </children>
+</AnchorPane>

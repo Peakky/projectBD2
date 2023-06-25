@@ -1,25 +1,6 @@
 package com.example.projectbd2;
 
-import com.example.projectbd2.Courier.Courier_Controller;
-import com.example.projectbd2.Courier.Courier_Delete;
-import com.example.projectbd2.Courier.Courier_Insert;
-import com.example.projectbd2.Courier.Courier_Update;
-import com.example.projectbd2.Customer.Customer_Controller;
-import com.example.projectbd2.Customer.Customer_Delete;
-import com.example.projectbd2.Customer.Customer_Insert;
-import com.example.projectbd2.Customer.Customer_Update;
-import com.example.projectbd2.Delivery.Delivery_Controller;
-import com.example.projectbd2.Delivery.Delivery_Delete;
-import com.example.projectbd2.Delivery.Delivery_Insert;
-import com.example.projectbd2.Delivery.Delivery_Update;
-import com.example.projectbd2.Order.Order_Controller;
-import com.example.projectbd2.Order.Order_Delete;
-import com.example.projectbd2.Order.Order_Insert;
-import com.example.projectbd2.Order.Order_Update;
-import com.example.projectbd2.Product.ProductController;
-import com.example.projectbd2.Product.ProductDelete;
-import com.example.projectbd2.Product.ProductInsert;
-import com.example.projectbd2.Product.ProductUpdate;
+import com.example.projectbd2.Warehouse.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -398,132 +379,132 @@ public class HelloApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Menu.fxml"));
         menu = new Scene(fxmlLoader.load());
 
-        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Courier/Courier.fxml"));
+        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Courier.fxml"));
         courier = new Scene(fxmlLoader.load());
         courierController = fxmlLoader.getController();
 
-        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Courier/CourierInsert.fxml"));
+        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CourierInsert.fxml"));
         courierInsert = new Scene(fxmlLoader.load());
         courierInsertController = fxmlLoader.getController();
 
-        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Courier/CourierDelete.fxml"));
+        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CourierDelete.fxml"));
         courierDelete = new Scene(fxmlLoader.load());
         courierDeleteController = fxmlLoader.getController();
 
-        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Courier/CourierUpdate.fxml"));
+        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CourierUpdate.fxml"));
         courierUpdate = new Scene(fxmlLoader.load());
         courierUpdateController = fxmlLoader.getController();
 
-        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Customer/Customer.fxml"));
+        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Customer.fxml"));
         customer = new Scene(fxmlLoader.load());
         customerController = fxmlLoader.getController();
 
-        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Customer/CustomerUpdate.fxml"));
+        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CustomerUpdate.fxml"));
         customerUpdate = new Scene(fxmlLoader.load());
         customerUpdateController = fxmlLoader.getController();
 
-        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Customer/CustomerDelete.fxml"));
+        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CustomerDelete.fxml"));
         customerDelete = new Scene(fxmlLoader.load());
         customerDeleteController = fxmlLoader.getController();
 
-        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Customer/CustomerInsert.fxml"));
+        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CustomerInsert.fxml"));
         customerInsert = new Scene(fxmlLoader.load());
         customerInsertController = fxmlLoader.getController();
 
 
-        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Delivery/Delivery.fxml"));
+        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Delivery.fxml"));
         delivery = new Scene(fxmlLoader.load());
         deliveryController = fxmlLoader.getController();
 
-        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Delivery/DeliveryDelete.fxml"));
+        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("DeliveryDelete.fxml"));
         deliveryDelete = new Scene(fxmlLoader.load());
         deliveryDeleteController = fxmlLoader.getController();
 
-        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Delivery/DeliveryInsert.fxml"));
+        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("DeliveryInsert.fxml"));
         deliveryInsert = new Scene(fxmlLoader.load());
         deliveryInsertController = fxmlLoader.getController();
 
-        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Delivery/DeliveryUpdate.fxml"));
+        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("DeliveryUpdate.fxml"));
         deliveryUpdate = new Scene(fxmlLoader.load());
         deliveryUpdateController = fxmlLoader.getController();
 
-        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Order/Order.fxml"));
+        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Order.fxml"));
         order = new Scene(fxmlLoader.load());
         orderController = fxmlLoader.getController();
 
-        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Order/OrderDelete.fxml"));
+        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("OrderDelete.fxml"));
         orderDelete = new Scene(fxmlLoader.load());
         orderDeleteController = fxmlLoader.getController();
 
-        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Order/OrderInsert.fxml"));
+        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("OrderInsert.fxml"));
         orderInsert = new Scene(fxmlLoader.load());
         orderInsertController = fxmlLoader.getController();
 
-        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Order/OrderUpdate.fxml"));
+        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("OrderUpdate.fxml"));
         orderUpdate = new Scene(fxmlLoader.load());
         orderUpdateController = fxmlLoader.getController();
 
-        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Product/Product.fxml"));
+        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Product.fxml"));
         Product = new Scene(fxmlLoader.load());
         productController = fxmlLoader.getController();
 
-        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Product/ProductDelete.fxml"));
+        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ProductDelete.fxml"));
         ProductDelete = new Scene(fxmlLoader.load());
         productDeleteController = fxmlLoader.getController();
 
-        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Product/ProductInsert.fxml"));
+        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ProductInsert.fxml"));
         ProductInsert = new Scene(fxmlLoader.load());
         productInsertController = fxmlLoader.getController();
 
-        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Product/ProductUpdate.fxml"));
+        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ProductUpdate.fxml"));
         ProductUpdate = new Scene(fxmlLoader.load());
         productUPdateController = fxmlLoader.getController();
 
-        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Supplier/Supplier.fxml"));
+        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Supplier.fxml"));
         Supplier = new Scene(fxmlLoader.load());
         supplierController = fxmlLoader.getController();
 
-        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Supplier/SupplierInsert.fxml"));
+        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SupplierInsert.fxml"));
         Supplier = new Scene(fxmlLoader.load());
         supplierInsertController = fxmlLoader.getController();
 
-        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Supplier/SupplierDelete.fxml"));
+        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SupplierDelete.fxml"));
         Supplier = new Scene(fxmlLoader.load());
         supplierDeleteController = fxmlLoader.getController();
 
-        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Supplier/SupplierUpdate.fxml"));
+        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SupplierUpdate.fxml"));
         Supplier = new Scene(fxmlLoader.load());
         supplierUpdateController = fxmlLoader.getController();
 
-        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Transaction/Transaction.fxml"));
+        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Transaction.fxml"));
         transaction = new Scene(fxmlLoader.load());
         transactionController = fxmlLoader.getController();
 
-        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Transaction/TransactionDelete.fxml"));
+        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("TransactionDelete.fxml"));
         transactionDelete = new Scene(fxmlLoader.load());
         transactionDeleteController = fxmlLoader.getController();
 
-        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Transaction/TransactionUpdate.fxml"));
+        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("TransactionUpdate.fxml"));
         transactionUpdate = new Scene(fxmlLoader.load());
         transactionUpdateController = fxmlLoader.getController();
 
-        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Transaction/TransactionInsert.fxml"));
+        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("TransactionInsert.fxml"));
         transactionInsert = new Scene(fxmlLoader.load());
         transactionInsertController = fxmlLoader.getController();
 
-        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Warehouse/Warehouse.fxml"));
+        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Warehouse.fxml"));
         Warehouse= new Scene(fxmlLoader.load());
         warehouseController = fxmlLoader.getController();
 
-        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Warehouse/WarehouseInsert.fxml"));
+        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("WarehouseInsert.fxml"));
         Warehouse= new Scene(fxmlLoader.load());
         warehouseInsertController= fxmlLoader.getController();
 
-        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Warehouse/WarehouseUpdate.fxml"));
+        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("WarehouseUpdate.fxml"));
         Warehouse= new Scene(fxmlLoader.load());
         warehouseUpdateController = fxmlLoader.getController();
 
-        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Warehouse/WarehouseDelete.fxml"));
+        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("WarehouseDelete.fxml"));
         Warehouse= new Scene(fxmlLoader.load());
         warehouseDeleteController = fxmlLoader.getController();
 

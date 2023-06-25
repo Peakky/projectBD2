@@ -10,4 +10,20 @@ public class Customer {
         this.email = email;
         this.no_hp=no_hp;
     }
+
+    public int getCustomerID() {
+        return customerID;
+    }
+
+    public String getNama() {
+        return nama;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getNo_hp() {
+        return no_hp;
+    }
 }

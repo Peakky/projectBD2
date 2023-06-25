@@ -2,9 +2,9 @@ package com.example.projectbd2;
 
 import com.example.projectbd2.HelloApplication;
 import com.example.projectbd2.Pagination;
-import com.example.projectbd2.Transaction.Transaction;
-import com.example.projectbd2.Transaction.Transaction_Property;
-import com.example.projectbd2.Transaction.Transaction_Repository;
+import com.example.projectbd2.Product.Product;
+import com.example.projectbd2.Product.ProductProperty;
+import com.example.projectbd2.Product.ProductRepository;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -19,25 +19,24 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class Transaction_Controller implements Initializable {
+public class ProductController implements Initializable {
     @FXML
     private Button ButtonNext, ButtonPrev;
     @FXML
-    private TableColumn<Transaction_Property, String> ColumnIdTransaction, ColumnNominalTransaction, ColumnCustomerID;
+    private TableColumn<ProductProperty, String> ColumnProductID, ColumnNamaProduct, ColumnJumlahProduct,ColumnSupplierFK,ColumnWarehouseFK;
     @FXML
-    private TableView<Transaction_Property> TableViewTransaction;
+    private TableView<ProductProperty> TableProduct;
 
     private int page = 1;
 
     private int rowsPerPage = 12;
 
-    private ObservableList<Transaction_Property> transactions = FXCollections.observableArrayList();
+    private ObservableList<ProductProperty> product = FXCollections.observableArrayList();
 
-    private Transaction_Repository transactionRepository = new Transaction_Repository();
+    private ProductRepository productRepository = new ProductRepository();
 
-    public Transaction_Controller() throws SQLException {
+    public ProductController() throws SQLException {
     }
-
     @FXML
     void onNextButtonClick(ActionEvent event) throws SQLException {
         page++;
@@ -59,19 +58,19 @@ public class Transaction_Controller implements Initializable {
     @FXML
     void onAddButtonClick(){
         HelloApplication app = HelloApplication.getapplicationInstance();
-        app.setPrimaryStage(app.getTransactionInsert());
+        app.setPrimaryStage(app.getProductInsert());
     }
 
     @FXML
     void onEditButtonClick(){
         HelloApplication app = HelloApplication.getApplicationInstance();
-        app.setPrimaryStage(app.getTransactionUpdate());
+        app.setPrimaryStage(app.getProductUpdate());
     }
 
     @FXML
     void onDeleteButtonClick(){
         HelloApplication app = HelloApplication.getApplicationInstance();
-        app.setPrimaryStage(app.getTransactionDelete());
+        app.setPrimaryStage(app.getProductDelete());
     }
 
     private void updateButton() throws SQLException {
@@ -80,7 +79,7 @@ public class Transaction_Controller implements Initializable {
         } else {
             ButtonPrev.setDisable(false);
         }
-        if (page >= Math.ceil((transactionRepository.GetTransactionCount() / Double.valueOf(rowsPerPage)))){
+        if (page >= Math.ceil((productRepository.GetProductCount()  / Double.valueOf(rowsPerPage)))){
             ButtonNext.setDisable(true);
         } else {
             ButtonNext.setDisable(false);
@@ -88,30 +87,33 @@ public class Transaction_Controller implements Initializable {
     }
 
     public void updateTable() throws SQLException {
-        transactions = FXCollections.observableArrayList();
-        ArrayList<Transaction> result;
+        product = FXCollections.observableArrayList();
+        ArrayList<Product> result;
         try {
-            result = transactionRepository.GetTransaction(new Pagination(page, rowsPerPage));
+            result = productRepository.GetProduct(new Pagination(page, rowsPerPage));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         result.forEach((t) -> {
-            Transaction_Property tp = new Transaction_Property();
-            tp.setId(Integer.toString(t.getTransactionID()));
-            tp.setNominal(Integer.toString(t.getNominal()));
-            tp.setCustomerID(Integer.toString(t.getCustomerID()));
-            transactions.add(tp);
+            ProductProperty tp = new ProductProperty();
+            tp.setProductID(Integer.toString(t.getProductID()));
+            tp.setNamaProduct(t.getNamaProduct());
+            tp.setStockProduct(Integer.toString(t.getStockProduct()));
+            tp.setSupplierID(Integer.toString(t.getSupplierFK()));
+            tp.setWarehouseID(Integer.toString(t.getWarehouseID()));
+
+            product.add(tp);
         });
-        TableViewTransaction.setItems(transactions);
+        TableProduct.setItems(product);
         updateButton();
     }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ColumnIdTransaction.setCellValueFactory(f -> f.getValue().idTransaction());
-        ColumnNominalTransaction.setCellValueFactory(f -> f.getValue().NominalTransaction());
-        ColumnCustomerID.setCellValueFactory(f-> f.getValue().customerIDProperty());
-
+        ColumnProductID.setCellValueFactory(f -> f.getValue().productIDProperty());
+        ColumnNamaProduct.setCellValueFactory(f -> f.getValue().namaProductProperty());
+        ColumnJumlahProduct.setCellValueFactory(f -> f.getValue().stockProductProperty());
+        ColumnSupplierFK.setCellValueFactory(f -> f.getValue().supplierIDProperty());
+        ColumnWarehouseFK.setCellValueFactory(f -> f.getValue().warehouseIDProperty());
         try {
             updateTable();
         } catch (SQLException e) {

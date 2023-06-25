@@ -9,4 +9,16 @@ public class Delivery {
         this.Tanggal_Delivery= Tanggal;
         this.courierID=courierID;
     }
+
+    public int getDeliveryID() {
+        return deliveryID;
+    }
+
+    public int getCourierID() {
+        return courierID;
+    }
+
+    public String getTanggal_Delivery() {
+        return Tanggal_Delivery;
+    }
 }
