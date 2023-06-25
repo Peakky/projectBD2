@@ -18,19 +18,11 @@ public class WarehouseInsert {
     @FXML
     public void onAddButtonClick() throws SQLException {
         warehouseRepository = new WarehouseRepository();
-        if (!isNumeric(NoTelepon.getText())){
-            warningText.setText("No Telepon Harus Angka!");
-        }else {
-            try {
-                warehouseRepository.insertData(NamaWarehouse.getText(), Alamat.getText(), Integer.parseInt(NoTelepon.getText()));
-            } catch (SQLIntegrityConstraintViolationException e) {
-                warningText.setText("Gagal Input");
-            }
+
             HelloApplication app = HelloApplication.getapplicationInstance();
             app.getWarehouseController().updateTable();
             app.setPrimaryStage(app.getWarehouse());
         }
-    }
 
     public static boolean isNumeric(String s){
         try {

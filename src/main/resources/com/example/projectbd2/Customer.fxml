@@ -21,7 +21,7 @@
         </AnchorPane>
         <Button layoutX="512.0" layoutY="462.0" mnemonicParsing="false" onAction="#onDeleteButtonClick" prefHeight="26.0" prefWidth="154.0" text="Delete" />
         <Button layoutX="255.0" layoutY="462.0" mnemonicParsing="false" onAction="#onEditButtonClick" prefHeight="26.0" prefWidth="154.0" text="Update" />
-        <Button fx:id="onAddButtonClick" layoutX="24.0" layoutY="462.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" text="Add" />
+        <Button layoutX="24.0" layoutY="462.0" mnemonicParsing="false" onAction="#onAddButtonClick" prefHeight="26.0" prefWidth="154.0" text="Add" />
         <Button layoutX="758.0" layoutY="462.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="26.0" prefWidth="154.0" text="Cancel" />
       <Button fx:id="ButtonNext" layoutX="842.0" layoutY="417.0" mnemonicParsing="false" onAction="#onNextButtonClick" text="-&gt;" />
       <Button fx:id="ButtonPrev" layoutX="65.0" layoutY="417.0" mnemonicParsing="false" onAction="#onPrevButtonClick" text="&lt;-" />
