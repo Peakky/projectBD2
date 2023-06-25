@@ -356,8 +356,8 @@ public class HelloApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load());
 
         fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Courier/CourierInsert.fxml"));
-        courier = new Scene(fxmlLoader.load());
-        courierController = fxmlLoader.getController();
+        courierInsert = new Scene(fxmlLoader.load());
+        courierInsertController = fxmlLoader.getController();
 
         fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Courier/Courier.fxml"));
         courier = new Scene(fxmlLoader.load());
