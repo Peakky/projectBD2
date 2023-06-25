@@ -11,7 +11,7 @@ import java.sql.SQLIntegrityConstraintViolationException;
 
 public class WarehouseInsert {
     @FXML
-    TextField NamaWarehouse, NoTelepon;
+    TextField NamaWarehouse,Alamat, NoTelepon;
     Label warningText;
     WarehouseRepository warehouseRepository;
     @FXML
@@ -21,7 +21,7 @@ public class WarehouseInsert {
             warningText.setText("No Telepon Harus Angka!");
         }else {
             try {
-                warehouseRepository.insertData(NamaWarehouse.getText(), Integer.parseInt(NoTelepon.getText()));
+                warehouseRepository.insertData(NamaWarehouse.getText(), Alamat.getText(), Integer.parseInt(NoTelepon.getText()));
             } catch (SQLIntegrityConstraintViolationException e) {
                 warningText.setText("Gagal Input");
             }

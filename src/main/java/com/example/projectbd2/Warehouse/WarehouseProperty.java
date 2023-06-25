@@ -3,11 +3,12 @@ package com.example.projectbd2.Warehouse;
 import javafx.beans.property.SimpleStringProperty;
 
 public class WarehouseProperty {
-    SimpleStringProperty WarehouseID,NamaWarehouse, NoTelp;
+    SimpleStringProperty WarehouseID,NamaWarehouse, alamat, NoTelp;
 
     public WarehouseProperty() {
         WarehouseID = new SimpleStringProperty(this, "Warehouse ID");
         NamaWarehouse = new SimpleStringProperty(this, "Nama Warehouse");
+        alamat = new SimpleStringProperty(this, "Alamat");
         NoTelp = new SimpleStringProperty(this, "Nomor Telepon");
     }
 
@@ -33,6 +34,18 @@ public class WarehouseProperty {
 
     public void setNamaWarehouse(String namaWarehouse) {
         this.NamaWarehouse.set(namaWarehouse);
+    }
+
+    public String getAlamat() {
+        return alamat.get();
+    }
+
+    public SimpleStringProperty alamatProperty() {
+        return alamat;
+    }
+
+    public void setAlamat(String alamat) {
+        this.alamat.set(alamat);
     }
 
     public String getNoTelp() {

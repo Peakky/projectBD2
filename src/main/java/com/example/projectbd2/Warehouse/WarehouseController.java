@@ -20,7 +20,7 @@ public class WarehouseController implements Initializable {
     @FXML
     private Button ButtonNext, ButtonPrev;
     @FXML
-    private TableColumn<WarehouseProperty, String> ColumnID, ColumnNama, ColumnNoTelp;
+    private TableColumn<WarehouseProperty, String> ColumnID, ColumnNama,ColumnAlamat, ColumnNoTelp;
     @FXML
     private TableView<WarehouseProperty> TableWarehouse;
 
@@ -96,6 +96,7 @@ public class WarehouseController implements Initializable {
             WarehouseProperty tp = new WarehouseProperty();
             tp.setWarehouseID(Integer.toString(t.WarehouseID));
             tp.setNamaWarehouse(t.NamaWarehouse);
+            tp.setAlamat(t.alamat);
             tp.setNoTelp(Integer.toString(t.NomorTelp));
             warehouseProperties.add(tp);
         });
@@ -106,6 +107,7 @@ public class WarehouseController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ColumnID.setCellValueFactory(f -> f.getValue().warehouseIDProperty());
         ColumnNama.setCellValueFactory(f -> f.getValue().namaWarehouseProperty());
+        ColumnAlamat.setCellValueFactory(f -> f.getValue().alamatProperty());
         ColumnNoTelp.setCellValueFactory(f -> f.getValue().noTelpProperty());
         try {
             updateTable();

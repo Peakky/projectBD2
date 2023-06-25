@@ -36,6 +36,7 @@ public class WarehouseRepository {
                     new Warehouse(
                             rs.getInt("Warehouse ID"),
                             rs.getString("Nama Warehouse"),
+                            rs.getString("Alamat"),
                             rs.getInt("Nomor Telepon")
                     )
             );
@@ -43,20 +44,24 @@ public class WarehouseRepository {
         return warehouses;
     }
 
-    public void insertData( String Nama,int NomorTelp) throws SQLException {
-        String Query = "INSERT INTO Warehouse (Nama_Warehouse,Nomor_Telepon) VALUES (?,?)";
+    public void insertData( String Nama,String alamat, int NomorTelp) throws SQLException {
+        String Query = "INSERT INTO Warehouse (Nama_Warehouse,alamat, Nomor_Telepon) VALUES (?,?,?)";
         PreparedStatement preparedStatement = conn.prepareStatement(Query);
         preparedStatement.setString(1, Nama);
-        preparedStatement.setInt(2, NomorTelp);
+        preparedStatement.setString(2, alamat);
+        preparedStatement.setInt(3, NomorTelp);
         System.out.println(preparedStatement);
         preparedStatement.execute();
     }
 
-    public void updateData(int id,String Nama, int NomorTelepon) throws SQLException {
+    public void updateData(int id,String Nama,String Alamat, int NomorTelepon) throws SQLException {
         String Query = "UPDATE Supplier SET ";
         try {
 
             PreparedStatement preparedStatement = conn.prepareStatement(Query + "Nama_Warehouse = '" + Nama + "' where id = " + id);
+            System.out.println(preparedStatement);
+            preparedStatement.execute();
+            preparedStatement = conn.prepareStatement(Query + "alamat = '" + Alamat + "' where id = " + id);
             System.out.println(preparedStatement);
             preparedStatement.execute();
             preparedStatement = conn.prepareStatement(Query + "Nomor_Telepon = '" + NomorTelepon + "' where id = " + id);
