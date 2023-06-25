@@ -100,7 +100,7 @@ public class Order_Controller implements Initializable {
             Order_Property ot = new Order_Property();
             ot.setId(Integer.toString(f.getOrderID()));
             ot.setTanggal_Order(f.getTanggal_Delivery());
-
+            ot.setTransactionID(Integer.toString(f.getTransactionID()));
             orders.add(ot);
         });
         TableViewOrder.setItems(orders);
@@ -111,7 +111,7 @@ public class Order_Controller implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ColumnIdOrder.setCellValueFactory(f -> f.getValue().IdOrder());
         ColumnTanggalOrder.setCellValueFactory(f -> f.getValue().TanggalOrder());
-
+        ColumnTransactionFK.setCellValueFactory(f -> f.getValue().transactionIDProperty());
         try {
             updateTable();
         } catch (SQLException e) {
