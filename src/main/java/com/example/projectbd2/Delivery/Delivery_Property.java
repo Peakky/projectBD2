@@ -10,9 +10,9 @@ public class Delivery_Property {
 
 
     public Delivery_Property() {
-        id = new SimpleStringProperty(this, "id");
-        Tanggal_Delivery = new SimpleStringProperty(this, "Tanggal");
-        CourierID= new SimpleStringProperty(this,"Courier ID");
+        id = new SimpleStringProperty(this,"Delivery_id");
+        Tanggal_Delivery = new SimpleStringProperty(this, "Tanggal_delivery");
+        CourierID= new SimpleStringProperty(this,"Courier_ID");
     }
 
     public String getCourierID() {

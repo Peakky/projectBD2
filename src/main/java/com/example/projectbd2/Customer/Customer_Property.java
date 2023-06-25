@@ -11,10 +11,10 @@ public class Customer_Property {
 
 
     public Customer_Property(){
-        id = new SimpleStringProperty(this, "id");
+        id = new SimpleStringProperty(this, "Customer_id");
         nama = new SimpleStringProperty(this, "nama");
-        email = new SimpleStringProperty(this, "email");
-        no_hp = new SimpleStringProperty(this, "number");
+        email = new SimpleStringProperty(this, "E-mail");
+        no_hp = new SimpleStringProperty(this, "No_HP");
     }
 
     public StringProperty Id_Customer(){return id;}

@@ -16,7 +16,7 @@ public class Order_Repository {
 
     public int GetOrderCount() throws SQLException {
         Statement stmt = conn.createStatement();
-        String sql = "SELECT COUNT(id) FROM order";
+        String sql = "SELECT COUNT(Order_id) FROM orders";
         System.out.println(sql);
         ResultSet rs = stmt.executeQuery(sql);
         if(rs.next()){
@@ -29,13 +29,13 @@ public class Order_Repository {
     public ArrayList<Order> GetOrder(Pagination pgn) throws SQLException {
         ArrayList<Order> orders = new ArrayList<Order>();
         Statement stmt = conn.createStatement();
-        String sql = String.format("SELECT * FROM order LIMIT %o OFFSET %o", pgn.limit, pgn.offset);
+        String sql = String.format("SELECT * FROM orders LIMIT %o OFFSET %o", pgn.limit, pgn.offset);
         System.out.println(sql);
         ResultSet rs = stmt.executeQuery(sql);
         while (rs.next()){
             orders.add(
                     new Order(
-                            rs.getInt("id"),
+                            rs.getInt("Order_id"),
                             rs.getString("Tanggal"),
                             rs.getInt("transaction_id")
                     )
@@ -62,11 +62,11 @@ public class Order_Repository {
     public void updateData(int id, String Tanggal, int TransactionID) {
         String Query = "UPDATE order SET ";
         try {
-            PreparedStatement preparedStatement = conn.prepareStatement(Query + "Tanggal = '" + Tanggal + "' where id = " + id);
+            PreparedStatement preparedStatement = conn.prepareStatement(Query + "Tanggal = '" + Tanggal + "' where Order_id = " + id);
             System.out.println(preparedStatement);
             preparedStatement.execute();
 
-            preparedStatement = conn.prepareStatement(Query + "transaction_ID = '" + TransactionID + "' where id = " + id);
+            preparedStatement = conn.prepareStatement(Query + "transaction_ID = '" + TransactionID + "' where Order_id = " + id);
             System.out.println(preparedStatement);
             preparedStatement.execute();
 
@@ -79,7 +79,7 @@ public class Order_Repository {
     }
 
     public void deleteData(int id){
-        String Query = "DELETE FROM order WHERE id = " + id;
+        String Query = "DELETE FROM order WHERE Order_id = " + id;
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(Query);
             System.out.println(preparedStatement);
@@ -91,7 +91,7 @@ public class Order_Repository {
     }
 
     public boolean cekId(int id){
-        String Query = "select * FROM order WHERE id = " + id;
+        String Query = "select * FROM order WHERE Order_id = " + id;
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(Query);
             System.out.println(preparedStatement);

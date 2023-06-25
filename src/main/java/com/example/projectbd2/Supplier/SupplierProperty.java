@@ -7,9 +7,9 @@ public class SupplierProperty {
     private SimpleStringProperty NamaSup, NoTelp;
 
     public SupplierProperty() {
-        idSup = new SimpleStringProperty(this, "id");
-        NamaSup = new SimpleStringProperty(this, "Nama Supplier");
-        NoTelp = new SimpleStringProperty(this, "No Telepon");
+        idSup = new SimpleStringProperty(this, "Supplier_id");
+        NamaSup = new SimpleStringProperty(this, "Nama");
+        NoTelp = new SimpleStringProperty(this, "No_telp");
     }
 
     public String getIdSup() {

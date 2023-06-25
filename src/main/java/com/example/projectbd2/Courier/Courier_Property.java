@@ -10,9 +10,9 @@ public class Courier_Property {
 
 
     public Courier_Property(){
-        id = new SimpleStringProperty(this, "id");
-        nama = new SimpleStringProperty(this, "nama");
-        no_telp = new SimpleStringProperty(this, "no hp");
+        id = new SimpleStringProperty(this, "Courier_id");
+        nama = new SimpleStringProperty(this, "Nama");
+        no_telp = new SimpleStringProperty(this, "no_hp");
     }
 
     public StringProperty IdCourier(){return id;}

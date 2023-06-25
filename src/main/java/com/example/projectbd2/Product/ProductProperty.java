@@ -11,11 +11,11 @@ public class ProductProperty {
     SimpleStringProperty WarehouseID;
 
     public ProductProperty() {
-        ProductID = new SimpleStringProperty(this, "Product ID");
-        NamaProduct = new SimpleStringProperty(this, "Nama Product");
-        SupplierID = new SimpleStringProperty(this, "Supplier ID");
-        StockProduct = new SimpleStringProperty(this, "Product Ready");
-        WarehouseID = new SimpleStringProperty(this, "Warehouse ID");
+        ProductID = new SimpleStringProperty(this, "Product_id");
+        NamaProduct = new SimpleStringProperty(this, "Nama_Product");
+        SupplierID = new SimpleStringProperty(this, "Supplier_ID");
+        StockProduct = new SimpleStringProperty(this, "Stock_Product");
+        WarehouseID = new SimpleStringProperty(this, "Warehouse_ID");
 
     }
 

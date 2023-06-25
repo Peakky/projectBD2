@@ -15,7 +15,7 @@ public class Courier_Repository {
 
     public int GetCourierCount() throws SQLException {
         Statement stmt = conn.createStatement();
-        String sql = "SELECT COUNT(id) FROM courier";
+        String sql = "SELECT COUNT(Courier_id) FROM courier";
         System.out.println(sql);
         ResultSet rs = stmt.executeQuery(sql);
         if(rs.next()){
@@ -34,9 +34,9 @@ public class Courier_Repository {
         while (rs.next()){
             couriers.add(
                     new Courier(
-                            rs.getInt("id"),
+                            rs.getInt("Courier_id"),
                             rs.getString("nama"),
-                            rs.getString("no hp")
+                            rs.getString("no_hp")
                     )
             );
         }
@@ -59,12 +59,12 @@ public class Courier_Repository {
     }
 
     public void updateData(int id, String nama, String no_hp ) {
-        String Query = "UPDATE pengguna SET ";
+        String Query = "UPDATE courier SET ";
         try {
-            PreparedStatement preparedStatement = conn.prepareStatement(Query + "nama = '" + nama + "' where id = " + id);
+            PreparedStatement preparedStatement = conn.prepareStatement(Query + "nama = '" + nama + "' where Courier_id = " + id);
             System.out.println(preparedStatement);
             preparedStatement.execute();
-            preparedStatement = conn.prepareStatement(Query + "no hp = '" + no_hp + "' where id = " + id);
+            preparedStatement = conn.prepareStatement(Query + "no hp = '" + no_hp + "' where Courier_id = " + id);
             System.out.println(preparedStatement);
             preparedStatement.execute();
 
@@ -76,7 +76,7 @@ public class Courier_Repository {
         }
     }
     public void deleteData(int id){
-        String Query = "DELETE FROM courier WHERE id = " + id;
+        String Query = "DELETE FROM courier WHERE Courier_id = " + id;
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(Query);
             System.out.println(preparedStatement);
@@ -88,7 +88,7 @@ public class Courier_Repository {
     }
 
     public boolean cekId(int id){
-        String Query = "select * FROM courier WHERE id = " + id;
+        String Query = "select * FROM courier WHERE Courier_id = " + id;
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(Query);
             System.out.println(preparedStatement);

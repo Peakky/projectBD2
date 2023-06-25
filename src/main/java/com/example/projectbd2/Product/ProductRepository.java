@@ -15,7 +15,7 @@ public class ProductRepository {
 
         public int GetProductCount() throws SQLException {
             Statement stmt = conn.createStatement();
-            String sql = "SELECT COUNT(id) FROM Product";
+            String sql = "SELECT COUNT(Product_id) FROM Product";
             System.out.println(sql);
             ResultSet rs = stmt.executeQuery(sql);
             if(rs.next()){
@@ -34,11 +34,11 @@ public class ProductRepository {
             while (rs.next()){
                 products.add(
                         new Product(
-                                rs.getInt("id Product"),
-                                rs.getString("Nama Product"),
-                                rs.getInt("Jumlah Product"),
-                                rs.getInt("Supplier ID"),
-                                rs.getInt("Warehouse ID")
+                                rs.getInt("Product_id"),
+                                rs.getString("Nama_Product"),
+                                rs.getInt("Product_id"),
+                                rs.getInt("Supplier_id"),
+                                rs.getInt("Warehouse_id")
                         )
                 );
             }
@@ -46,7 +46,7 @@ public class ProductRepository {
         }
 
         public void insertData(String Nama, int JumlahProduct, int SupplierID, int WarehouseID) throws SQLException {
-            String Query = "INSERT INTO Product (Nama_Product,Jumlah_Product,SupplierID,WarehouseID) VALUES (?,?,?,?)";
+            String Query = "INSERT INTO Product (Nama_Product,stock_Product,Supplier_ID,Warehouse_ID) VALUES (?,?,?,?)";
             PreparedStatement preparedStatement = conn.prepareStatement(Query);
             preparedStatement.setString(1, Nama);
             preparedStatement.setInt(2, JumlahProduct);
@@ -57,19 +57,19 @@ public class ProductRepository {
         }
 
         public void updateData(int id,String Nama, int JumlahProduct, int SupplierID, int WarehouseID) throws SQLException {
-            String Query = "UPDATE Supplier SET ";
+            String Query = "UPDATE Product SET ";
             try {
 
-                PreparedStatement preparedStatement = conn.prepareStatement(Query + "Nama_Product = '" + Nama + "' where id = " + id);
+                PreparedStatement preparedStatement = conn.prepareStatement(Query + "Nama_Product = '" + Nama + "' where Product_id  = " + id);
                 System.out.println(preparedStatement);
                 preparedStatement.execute();
-                preparedStatement = conn.prepareStatement(Query + "Jumlah_Product = '" + JumlahProduct + "' where id = " + id);
+                preparedStatement = conn.prepareStatement(Query + "stock_Product = '" + JumlahProduct + "' where Product_id  = " + id);
                 System.out.println(preparedStatement);
                 preparedStatement.execute();
-                preparedStatement = conn.prepareStatement(Query + "Supplier_ID = '" + SupplierID + "' where id = " + id);
+                preparedStatement = conn.prepareStatement(Query + "Supplier_ID = '" + SupplierID + "' where Product_id  = " + id);
                 System.out.println(preparedStatement);
                 preparedStatement.execute();
-                preparedStatement = conn.prepareStatement(Query + "Warehouse_ID = '" + WarehouseID + "' where id = " + id);
+                preparedStatement = conn.prepareStatement(Query + "Warehouse_ID = '" + WarehouseID + "' where Product_id  = " + id);
                 System.out.println(preparedStatement);
                 preparedStatement.execute();
 
@@ -80,7 +80,7 @@ public class ProductRepository {
             }
         }
         public void deleteData(int id) throws SQLException {
-            String Query = "DELETE FROM Product WHERE id = " + id;
+            String Query = "DELETE FROM Product WHERE Product_id  = " + id;
             try {
                 PreparedStatement preparedStatement = conn.prepareStatement(Query);
                 System.out.println(preparedStatement);
@@ -92,7 +92,7 @@ public class ProductRepository {
         }
 
         public boolean cekId(int id) throws SQLException {
-            String Query = "select * FROM Product WHERE id = " + id;
+            String Query = "select * FROM Product WHERE Product_id  = " + id;
             try {
                 PreparedStatement preparedStatement = conn.prepareStatement(Query);
                 System.out.println(preparedStatement);

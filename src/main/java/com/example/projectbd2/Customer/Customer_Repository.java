@@ -15,7 +15,7 @@ public class Customer_Repository {
 
     public int GetCustomerCount() throws SQLException {
         Statement stmt = conn.createStatement();
-        String sql = "SELECT COUNT(id) FROM customer";
+        String sql = "SELECT COUNT(Customer_id) FROM customer";
         System.out.println(sql);
         ResultSet rs = stmt.executeQuery(sql);
         if(rs.next()){
@@ -34,10 +34,10 @@ public class Customer_Repository {
         while (rs.next()){
             customers.add(
                     new Customer(
-                            rs.getInt("id"),
+                            rs.getInt("customer_id"),
                             rs.getString("nama"),
-                            rs.getString("email"),
-                            rs.getString("number")
+                            rs.getString("E-mail"),
+                            rs.getString("no_hp")
                     )
             );
         }
@@ -45,7 +45,7 @@ public class Customer_Repository {
     }
 
     public void insertData(String nama, String email, String number) {
-        String Query = "INSERT INTO customer (nama, email, number) VALUES (?,?,?)";
+        String Query = "INSERT INTO customer (nama,E-mail, No_hp) VALUES (?,?,?)";
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(Query);
             preparedStatement.setString(1, nama);
@@ -64,13 +64,13 @@ public class Customer_Repository {
     public void updateData(int id, String nama, String email,String number) {
         String Query = "UPDATE customer SET ";
         try {
-            PreparedStatement preparedStatement = conn.prepareStatement(Query + "nama = '" + nama + "' where id = " + id);
+            PreparedStatement preparedStatement = conn.prepareStatement(Query + "nama = '" + nama + "' where Customer_id = " + id);
             System.out.println(preparedStatement);
             preparedStatement.execute();
-            preparedStatement = conn.prepareStatement(Query + "email = '" + email + "' where id = " + id);
+            preparedStatement = conn.prepareStatement(Query + "E-mail = '" + email + "' where Customer_id = " + id);
             System.out.println(preparedStatement);
             preparedStatement.execute();
-            preparedStatement = conn.prepareStatement(Query + "number = '" + number + "' where id = " + id);
+            preparedStatement = conn.prepareStatement(Query + "no_hp = '" + number + "' where Customer_id = " + id);
             System.out.println(preparedStatement);
             preparedStatement.execute();
 
@@ -83,7 +83,7 @@ public class Customer_Repository {
         }
     }
     public void deleteData(int id){
-        String Query = "DELETE FROM customer WHERE id = " + id;
+        String Query = "DELETE FROM customer WHERE Customer_id = " + id;
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(Query);
             System.out.println(preparedStatement);
@@ -95,7 +95,7 @@ public class Customer_Repository {
     }
 
     public boolean cekId(int id){
-        String Query = "select * FROM customer WHERE id = " + id;
+        String Query = "select * FROM customer WHERE Customer_id = " + id;
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(Query);
             System.out.println(preparedStatement);

@@ -31,6 +31,7 @@ import com.example.projectbd2.Transaction.Transaction_Update;
 import com.example.projectbd2.Warehouse.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -405,15 +406,15 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         this.primaryStage = stage;
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Menu.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-
-        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Courier/CourierInsert.fxml"));
-        courierInsert = new Scene(fxmlLoader.load());
-        courierInsertController = fxmlLoader.getController();
+        menu = new Scene(fxmlLoader.load());
 
         fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Courier/Courier.fxml"));
         courier = new Scene(fxmlLoader.load());
         courierController = fxmlLoader.getController();
+
+        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Courier/CourierInsert.fxml"));
+        courierInsert = new Scene(fxmlLoader.load());
+        courierInsertController = fxmlLoader.getController();
 
         fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Courier/CourierDelete.fxml"));
         courierDelete = new Scene(fxmlLoader.load());
@@ -539,7 +540,7 @@ public class HelloApplication extends Application {
 
 
         stage.setTitle("Project Database!");
-        stage.setScene(scene);
+        stage.setScene(menu);
         stage.show();
     }
 

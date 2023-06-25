@@ -9,7 +9,7 @@ public class Order_Property {
 
 
     public Order_Property() {
-        id = new SimpleStringProperty(this, "id");
+        id = new SimpleStringProperty(this, "Order_id");
         Tanggal_Order = new SimpleStringProperty(this, "Tanggal");
         TransactionID = new SimpleStringProperty(this,"Transaction_ID");
 

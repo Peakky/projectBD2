@@ -15,7 +15,7 @@ public class SupplierRepository {
 
     public int GetSupplierCount() throws SQLException {
         Statement stmt = conn.createStatement();
-        String sql = "SELECT COUNT(id) FROM supplier";
+        String sql = "SELECT COUNT(Supplier_id) FROM supplier";
         System.out.println(sql);
         ResultSet rs = stmt.executeQuery(sql);
         if(rs.next()){
@@ -34,9 +34,9 @@ public class SupplierRepository {
         while (rs.next()){
             suppliers.add(
                     new Supplier(
-                            rs.getInt("id"),
+                            rs.getInt("Supplier_id"),
                             rs.getString("Nama"),
-                            rs.getInt("No Telepon")
+                            rs.getInt("No_Telp")
                     )
             );
         }
@@ -44,7 +44,7 @@ public class SupplierRepository {
     }
 
     public void insertData(String Nama, int NomorTelp) throws SQLException {
-        String Query = "INSERT INTO Supplier (Nama,Nomor_Telepon) VALUES (?,?)";
+        String Query = "INSERT INTO Supplier (Nama,Nomor_Telp) VALUES (?,?)";
         PreparedStatement preparedStatement = conn.prepareStatement(Query);
         preparedStatement.setString(1, Nama);
         preparedStatement.setInt(2, NomorTelp);
@@ -54,15 +54,15 @@ public class SupplierRepository {
 
     public void updateData(int id,String Nama, int Nomor_Telepon) throws SQLException {
         String Query = "UPDATE Supplier SET ";
-        PreparedStatement preparedStatement = conn.prepareStatement(Query + "Nama = '" + Nama + "' where id = " + id );
+        PreparedStatement preparedStatement = conn.prepareStatement(Query + "Nama = '" + Nama + "' where Supplier_id = " + id );
         System.out.println(preparedStatement);
         preparedStatement.execute();
-        preparedStatement = conn.prepareStatement(Query + "No_Telepon = '" + Nomor_Telepon  + "' where id = " + id);
+        preparedStatement = conn.prepareStatement(Query + "No_Telp = '" + Nomor_Telepon  + "' where Supplier_id = " + id);
         System.out.println(preparedStatement);
         preparedStatement.execute();
     }
     public void deleteData(int id) throws SQLException {
-        String Query = "DELETE FROM Supplier WHERE id = " + id;
+        String Query = "DELETE FROM Supplier WHERE Supplier_id = " + id;
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(Query);
             System.out.println(preparedStatement);
@@ -74,7 +74,7 @@ public class SupplierRepository {
     }
 
     public boolean cekId(int id) throws SQLException {
-        String Query = "select * FROM Supplier WHERE id = " + id;
+        String Query = "select * FROM Supplier WHERE Supplier_id = " + id;
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(Query);
             System.out.println(preparedStatement);

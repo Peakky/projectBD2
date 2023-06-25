@@ -15,7 +15,7 @@ public class Delivery_Repository {
 
     public int GetDeliveryCount() throws SQLException {
         Statement stmt = conn.createStatement();
-        String sql = "SELECT COUNT(id) FROM delivery";
+        String sql = "SELECT COUNT(Delivery_id) FROM delivery";
         System.out.println(sql);
         ResultSet rs = stmt.executeQuery(sql);
         if(rs.next()){
@@ -34,9 +34,9 @@ public class Delivery_Repository {
         while (rs.next()){
             deliveries.add(
                     new Delivery(
-                            rs.getInt("id"),
-                            rs.getString("Tanggal"),
-                            rs.getInt("Courier ID")
+                            rs.getInt("Delivery_id"),
+                            rs.getString("Tanggal_delivery"),
+                            rs.getInt("Courier_id")
                     )
             );
         }
@@ -44,7 +44,7 @@ public class Delivery_Repository {
     }
 
     public void insertData(String Tanggal, int CourierID) {
-        String Query = "INSERT INTO delivery (Tanggal, CourierID) VALUES (?,?)";
+        String Query = "INSERT INTO delivery (Tanggal_delivery, Courier_id) VALUES (?,?)";
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(Query);
             preparedStatement.setString(1, Tanggal);
@@ -61,10 +61,10 @@ public class Delivery_Repository {
     public void updateData(int id, String Tanggal, int CourierID) {
         String Query = "UPDATE delivery SET ";
         try {
-            PreparedStatement preparedStatement = conn.prepareStatement(Query + "Tanggal = '" + Tanggal + "' where id = " + id);
+            PreparedStatement preparedStatement = conn.prepareStatement(Query + "Tanggal_delivery = '" + Tanggal + "' where Delivery_id = " + id);
             System.out.println(preparedStatement);
             preparedStatement.execute();
-            preparedStatement = conn.prepareStatement(Query + "CourierID = '" + CourierID  + "' where id = " + id);
+            preparedStatement = conn.prepareStatement(Query + "Courier_id = '" + CourierID  + "' where Delivery_id = " + id);
             System.out.println(preparedStatement);
             preparedStatement.execute();
 
@@ -77,7 +77,7 @@ public class Delivery_Repository {
     }
 
     public void deleteData(int id){
-        String Query = "DELETE FROM delivery WHERE id = " + id;
+        String Query = "DELETE FROM delivery WHERE Delivery_id = " + id;
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(Query);
             System.out.println(preparedStatement);
@@ -89,7 +89,7 @@ public class Delivery_Repository {
     }
 
     public boolean cekId(int id){
-        String Query = "select * FROM delivery WHERE id = " + id;
+        String Query = "select * FROM delivery WHERE Delivery_id = " + id;
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(Query);
             System.out.println(preparedStatement);
