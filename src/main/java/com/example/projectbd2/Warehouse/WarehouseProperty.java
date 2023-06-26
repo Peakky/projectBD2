@@ -7,7 +7,7 @@ public class WarehouseProperty {
 
     public WarehouseProperty() {
         WarehouseID = new SimpleStringProperty(this, "Warehouse_id");
-        NamaWarehouse = new SimpleStringProperty(this, "Nama Warehouse");
+        NamaWarehouse = new SimpleStringProperty(this, "Nama_Warehouse");
         alamat = new SimpleStringProperty(this, "Alamat_warehouse");
         NoTelp = new SimpleStringProperty(this, "No_HP");
     }

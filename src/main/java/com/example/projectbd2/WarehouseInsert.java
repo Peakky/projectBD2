@@ -18,11 +18,15 @@ public class WarehouseInsert {
     @FXML
     public void onAddButtonClick() throws SQLException {
         warehouseRepository = new WarehouseRepository();
-
-            HelloApplication app = HelloApplication.getapplicationInstance();
-            app.getWarehouseController().updateTable();
-            app.setPrimaryStage(app.getWarehouse());
+        try {
+            warehouseRepository.insertData(NamaWarehouse.getText(), Alamat.getText(), Integer.parseInt(NoTelepon.getText()));
+        } catch (SQLIntegrityConstraintViolationException e) {
+            warningText.setText("Transaction Tidak ditemukan");
         }
+        HelloApplication app = HelloApplication.getapplicationInstance();
+        app.getWarehouseController().updateTable();
+        app.setPrimaryStage(app.getWarehouse());
+    }
 
     public static boolean isNumeric(String s){
         try {
