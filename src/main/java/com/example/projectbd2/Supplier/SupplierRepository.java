@@ -44,7 +44,7 @@ public class SupplierRepository {
     }
 
     public void insertData(String Nama, int NomorTelp) throws SQLException {
-        String Query = "INSERT INTO Supplier (Nama,Nomor_Telp) VALUES (?,?)";
+        String Query = "INSERT INTO Supplier (Nama,No_Telp) VALUES (?,?)";
         PreparedStatement preparedStatement = conn.prepareStatement(Query);
         preparedStatement.setString(1, Nama);
         preparedStatement.setInt(2, NomorTelp);

@@ -17,7 +17,7 @@ public class SupplierInsert {
     @FXML
     public void onAddButtonClick() throws SQLException {
         supplierRepository = new SupplierRepository();
-
+            supplierRepository.insertData(NamaSup.getText(),Integer.parseInt(NoTelepon.getText()));
             HelloApplication app = HelloApplication.getapplicationInstance();
             app.getSupplierController().updateTable();
             app.setPrimaryStage(app.getSupplier());

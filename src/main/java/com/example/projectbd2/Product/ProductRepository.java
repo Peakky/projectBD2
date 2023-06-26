@@ -36,7 +36,7 @@ public class ProductRepository {
                         new Product(
                                 rs.getInt("Product_id"),
                                 rs.getString("Nama_Product"),
-                                rs.getInt("Product_id"),
+                                rs.getInt("stock_product"),
                                 rs.getInt("Supplier_id"),
                                 rs.getInt("Warehouse_id")
                         )
