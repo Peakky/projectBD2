@@ -62,7 +62,7 @@ public class Customer_Repository {
     }
 
     public void updateData(int id, String nama, String email,String number) {
-        String Query = "UPDATE customer SET ";
+        String Query = "UPDATE Customer SET ";
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(Query + "nama = '" + nama + "' where Customer_id = " + id);
             System.out.println(preparedStatement);

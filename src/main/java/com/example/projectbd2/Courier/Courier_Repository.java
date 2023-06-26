@@ -64,7 +64,7 @@ public class Courier_Repository {
             PreparedStatement preparedStatement = conn.prepareStatement(Query + "nama = '" + nama + "' where Courier_id = " + id);
             System.out.println(preparedStatement);
             preparedStatement.execute();
-            preparedStatement = conn.prepareStatement(Query + "no hp = '" + no_hp + "' where Courier_id = " + id);
+            preparedStatement = conn.prepareStatement(Query + "no_hp = '" + no_hp + "' where Courier_id = " + id);
             System.out.println(preparedStatement);
             preparedStatement.execute();
 
