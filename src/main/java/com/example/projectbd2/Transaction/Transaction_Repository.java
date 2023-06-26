@@ -43,11 +43,12 @@ public class Transaction_Repository {
         return transactions;
     }
 
-    public void insertData(int nominal) throws SQLException {
-        String Query = "INSERT INTO transaction (Price) VALUES (?)";
+    public void insertData(int nominal,int penggunaId) throws SQLException {
+        String Query = "INSERT INTO transaction (Price,Customer_id) VALUES (?,?)";
         PreparedStatement preparedStatement = conn.prepareStatement(Query);
 
         preparedStatement.setString(1, Integer.toString(nominal));
+        preparedStatement.setInt(2,penggunaId);
 
         System.out.println(preparedStatement);
         preparedStatement.execute();

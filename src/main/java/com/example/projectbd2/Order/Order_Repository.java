@@ -45,7 +45,7 @@ public class Order_Repository {
     }
 
     public void insertData(String Tanggal, int transactionID) throws SQLException{
-        String Query = "INSERT INTO order (Tanggal,Transaction_ID) VALUES (?,?)";
+        String Query = "INSERT INTO orders (Tanggal,Transaction_ID) VALUES (?,?)";
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(Query);
             preparedStatement.setString(1, Tanggal);
@@ -60,7 +60,7 @@ public class Order_Repository {
     }
 
     public void updateData(int id, String Tanggal, int TransactionID) {
-        String Query = "UPDATE order SET ";
+        String Query = "UPDATE orders SET ";
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(Query + "Tanggal = '" + Tanggal + "' where Order_id = " + id);
             System.out.println(preparedStatement);
@@ -79,7 +79,7 @@ public class Order_Repository {
     }
 
     public void deleteData(int id){
-        String Query = "DELETE FROM order WHERE Order_id = " + id;
+        String Query = "DELETE FROM orders WHERE Order_id = " + id;
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(Query);
             System.out.println(preparedStatement);
@@ -91,7 +91,7 @@ public class Order_Repository {
     }
 
     public boolean cekId(int id){
-        String Query = "select * FROM order WHERE Order_id = " + id;
+        String Query = "select * FROM orders WHERE Order_id = " + id;
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(Query);
             System.out.println(preparedStatement);

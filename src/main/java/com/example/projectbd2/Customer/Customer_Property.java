@@ -17,7 +17,7 @@ public class Customer_Property {
         no_hp = new SimpleStringProperty(this, "No_HP");
     }
 
-    public StringProperty Id_Customer(){return id;}
+    public StringProperty   Id_Customer(){return id;}
     public String getId(){return Id_Customer().get();}
     public void setId(String newId){id.set(newId);}
 

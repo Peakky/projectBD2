@@ -36,7 +36,7 @@ public class Customer_Repository {
                     new Customer(
                             rs.getInt("customer_id"),
                             rs.getString("nama"),
-                            rs.getString("E-mail"),
+                            rs.getString("E_mail"),
                             rs.getString("no_hp")
                     )
             );
@@ -45,7 +45,7 @@ public class Customer_Repository {
     }
 
     public void insertData(String nama, String email, String number) {
-        String Query = "INSERT INTO customer (nama,E-mail, No_hp) VALUES (?,?,?)";
+        String Query = "INSERT INTO customer (nama,E_mail, No_hp) VALUES (?,?,?)";
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(Query);
             preparedStatement.setString(1, nama);
@@ -67,7 +67,7 @@ public class Customer_Repository {
             PreparedStatement preparedStatement = conn.prepareStatement(Query + "nama = '" + nama + "' where Customer_id = " + id);
             System.out.println(preparedStatement);
             preparedStatement.execute();
-            preparedStatement = conn.prepareStatement(Query + "E-mail = '" + email + "' where Customer_id = " + id);
+            preparedStatement = conn.prepareStatement(Query + "E_mail = '" + email + "' where Customer_id = " + id);
             System.out.println(preparedStatement);
             preparedStatement.execute();
             preparedStatement = conn.prepareStatement(Query + "no_hp = '" + number + "' where Customer_id = " + id);

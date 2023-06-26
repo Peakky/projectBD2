@@ -20,52 +20,20 @@ public class Transaction_Insert {
     @FXML
     public void onAddButtonClick() throws SQLException {
         transactionRepository = new Transaction_Repository();
-        if (!isNumeric(penggunaId.getText())){
-            warningText.setText("Pengguna ID harus angka");
-        }
-        else if (!(tanggal.getText().length() == 10)){
-            warningText.setText("Tanggal Invalid");
-        }
-        else if (!(tanggal.getText().charAt(4) == '-')){
-            warningText.setText("Tanggal Invalid");
-        }
-        else if (!(tanggal.getText().charAt(7) == '-')){
-            warningText.setText("Tanggal Invalid");
-        }
-        else {
-            String[] temp = tanggal.getText().split("-");
-            String tanggalAkhir = "";
-            for (String s : temp) {
-                if (!isNumeric(s)) {
-                    warningText.setText("Tanggal Invalid");
-                }
-            }
-            if (temp.length != 3){
-                warningText.setText("Tanggal Invalid");
-            }
-            else if (Integer.parseInt(temp[1]) > 12 || Integer.parseInt(temp[1]) < 0){
-                warningText.setText("Bulan Invalid");
-            }
-            else if (Integer.parseInt(temp[2]) > 31 || Integer.parseInt(temp[2]) < 0){
-                warningText.setText("Bulan Invalid");
-            }
-            else {
-                tanggalAkhir += temp[0] + "-" + temp[1] + "-" + temp[2];
-                isValid = true;
                 try {
-                    transactionRepository.insertData(Integer.parseInt(nominal.getText()));
+                    transactionRepository.insertData(Integer.parseInt(nominal.getText()),Integer.parseInt(penggunaId.getText()));
                 } catch (SQLIntegrityConstraintViolationException e){
                     warningText.setText("Pengguna ID Tidak ditemukan");
                     isValid = false;
                 }
-                if (isValid){
+
                     HelloApplication app = HelloApplication.getapplicationInstance();
                     app.getTransactionController().updateTable();
                     app.setPrimaryStage(app.getTransaction());
-                }
+
             }
-        }
-    }
+
+
 
     public static boolean isNumeric(String s){
         try {

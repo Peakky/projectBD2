@@ -29,34 +29,7 @@ public class Transaction_Update {
         else if (!transactionRepository.cekId(Integer.parseInt(id.getText()))){
             warningText.setText("Id invalid");
         }
-        else if (!(tanggal.getText().length() >= 10)){
-            warningText.setText("Tanggal Invalid");
-        }
-        else if (!(tanggal.getText().charAt(4) == '-')){
-            warningText.setText("Tanggal Invalid");
-        }
-        else if (!(tanggal.getText().charAt(7) == '-')){
-            warningText.setText("Tanggal Invalid");
-        }
-        else {
-            String[] temp = tanggal.getText().split("-");
-            String tanggalAkhir = "";
-            for (String s : temp) {
-                if (!isNumeric(s)) {
-                    warningText.setText("Tanggal Invalid");
-                }
-            }
-            if (temp.length != 3){
-                warningText.setText("Tanggal Invalid");
-            }
-            else if (Integer.parseInt(temp[1]) > 12 || Integer.parseInt(temp[1]) < 0){
-                warningText.setText("Bulan Invalid");
-            }
-            else if (Integer.parseInt(temp[2]) > 31 || Integer.parseInt(temp[2]) < 0){
-                warningText.setText("Bulan Invalid");
-            }
-            else {
-                tanggalAkhir += temp[0] + "-" + temp[1] + "-" + temp[2];
+
                 isValid = true;
                 try{
                     transactionRepository.updateData(Integer.parseInt(id.getText()),  Integer.parseInt(nominal.getText()));
@@ -70,8 +43,7 @@ public class Transaction_Update {
                     app.setPrimaryStage(app.getTransaction());
                 }
             }
-        }
-    }
+
 
     public static boolean isNumeric(String s){
         try {
