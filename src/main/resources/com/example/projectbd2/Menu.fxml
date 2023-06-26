@@ -3,7 +3,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectbd2.Menu">
    <children>
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onCourierButtonClick" prefHeight="26.0" prefWidth="578.0" text="Courier" />
@@ -14,5 +13,6 @@
       <Button layoutX="14.0" layoutY="190.0" mnemonicParsing="false" onAction="#onSupplierButtonClick" prefHeight="26.0" prefWidth="578.0" text="Supplier" />
       <Button layoutX="14.0" layoutY="225.0" mnemonicParsing="false" onAction="#onTransaksiButtonClick" prefHeight="26.0" prefWidth="578.0" text="Transaction" />
       <Button layoutX="11.0" layoutY="259.0" mnemonicParsing="false" onAction="#onWarehouseButtonClick" prefHeight="26.0" prefWidth="578.0" text="Warehouse" />
+      <Button layoutX="11.0" layoutY="292.0" mnemonicParsing="false" onAction="#onAnalisisButtonClick" prefHeight="26.0" prefWidth="578.0" text="Analisis" />
    </children>
 </AnchorPane>

@@ -35,4 +35,8 @@ public class Menu {
         HelloApplication app = HelloApplication.getApplicationInstance();
         app.setPrimaryStage(app.getWarehouse());
     }
+    public void onAnalisisButtonClick(){
+        HelloApplication app = HelloApplication.getApplicationInstance();
+        app.setPrimaryStage(app.getAnalisis());
+    }
 }

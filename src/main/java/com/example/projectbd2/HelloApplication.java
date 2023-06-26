@@ -1,6 +1,5 @@
 package com.example.projectbd2;
 
-import com.example.projectbd2.Warehouse.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -10,7 +9,8 @@ import java.io.IOException;
 
 public class HelloApplication extends Application {
     private Stage primaryStage;
-    private Scene menu;
+    private Analisis Analisiscontroller;
+    private Scene menu,Analisis;
     private Scene courier,courierInsert,courierUpdate,courierDelete;
     private Scene customer,customerInsert,customerUpdate,customerDelete;
     private Scene delivery,deliveryInsert,deliveryUpdate,deliveryDelete;
@@ -317,6 +317,22 @@ public class HelloApplication extends Application {
         this.productController = productController;
     }
 
+    public com.example.projectbd2.Analisis getAnalisiscontroller() {
+        return Analisiscontroller;
+    }
+
+    public void setAnalisiscontroller(com.example.projectbd2.Analisis analisiscontroller) {
+        Analisiscontroller = analisiscontroller;
+    }
+
+    public Scene getAnalisis() {
+        return Analisis;
+    }
+
+    public void setAnalisis(Scene analisis) {
+        Analisis = analisis;
+    }
+
     public Scene getWarehouse() {
         return Warehouse;
     }
@@ -507,6 +523,10 @@ public class HelloApplication extends Application {
         fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("WarehouseDelete.fxml"));
         WarehouseDelete= new Scene(fxmlLoader.load());
         warehouseDeleteController = fxmlLoader.getController();
+
+        fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Analisis.fxml"));
+        Analisis= new Scene(fxmlLoader.load());
+        Analisiscontroller = fxmlLoader.getController();
 
 
 

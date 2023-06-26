@@ -1,6 +1,7 @@
 package com.example.projectbd2.Customer;
 
 import com.example.projectbd2.Pagination;
+import com.example.projectbd2.Transaction.Transaction;
 import com.example.projectbd2.connection;
 
 import java.sql.*;
@@ -104,5 +105,36 @@ public class Customer_Repository {
             return false;
         }
         return true;
+    }
+
+    public ArrayList<Customer> GetMostContribution(Pagination pgn) throws SQLException {
+        ArrayList<Customer> customers = new ArrayList<Customer>();
+        Statement stmt = conn.createStatement();
+        String sql = String.format("SELECT p.Customer_id, p.nama, p.e_mail, p.no_hp\n" +
+                "FROM customer p\n" +
+                "join transaction t on t.customer_id = p.customer_id\n" +
+                "GROUP by p.customer_id\n" +
+                "ORDER BY count(t.customer_id) DESC LIMIT %o OFFSET %o", pgn.limit, pgn.offset);
+        System.out.println(sql);
+        ResultSet rs = stmt.executeQuery(sql);
+        while (rs.next()) {
+            customers.add(
+                    new Customer(
+                            rs.getInt("Customer_id"),
+                            rs.getString("nama"),
+                            rs.getString("e_mail"),
+                            rs.getString("no_hp")
+                    )
+            );
+        }
+        return customers;
+    }
+    public String priceContribution(Pagination pgn) throws SQLException{
+        Statement stmt = conn.createStatement();
+        String sql = String.format("Select price from transaction LIMIT %o OFFSET %o\", pgn.limit, pgn.offset");
+        System.out.println(sql);
+        ResultSet rs =stmt.executeQuery(sql);
+        rs.next();
+        return rs.getString("price");
     }
 }

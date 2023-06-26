@@ -84,4 +84,12 @@ public class Transaction_Repository {
         }
         return true;
     }
+    public String getNominal(Pagination pgn) throws SQLException {
+        Statement stmt = conn.createStatement();
+        String sql = String.format("SELECT sum(price) FROM transaction LIMIT %o OFFSET %o", pgn.limit, pgn.offset);
+        System.out.println(sql);
+        ResultSet rs = stmt.executeQuery(sql);
+        rs.next();
+        return rs.getString("sum(price)");
+    }
 }

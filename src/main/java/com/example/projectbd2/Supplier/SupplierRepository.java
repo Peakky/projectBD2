@@ -84,4 +84,25 @@ public class SupplierRepository {
         }
         return true;
     }
+    public ArrayList<Supplier> GetMostSupplier(Pagination pgn) throws SQLException {
+        ArrayList<Supplier> suppliers = new ArrayList<Supplier>();
+        Statement stmt = conn.createStatement();
+        String sql = String.format("SELECT f.Supplier_ID, f.nama, f.No_telp\n" +
+                "FROM Supplier f\n" +
+                "join product p on p.Supplier_ID = f.Supplier_ID\n" +
+                "GROUP by f.Supplier_ID\n" +
+                "ORDER BY count(p.Supplier_ID) DESC LIMIT %o OFFSET %o", pgn.limit, pgn.offset);
+        System.out.println(sql);
+        ResultSet rs = stmt.executeQuery(sql);
+        while (rs.next()){
+            suppliers.add(
+                    new Supplier(
+                            rs.getInt("Supplier_id"),
+                            rs.getString("nama"),
+                            rs.getInt("No_Telp")
+                    )
+            );
+        }
+        return suppliers;
+    }
 }
